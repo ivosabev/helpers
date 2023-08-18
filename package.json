@@ -1,0 +1,70 @@
+{
+  "name": "@ivosabev/helpers",
+  "version": "0.1.0",
+  "description": "Reusable Helpers",
+  "keywords": [
+    "javascript",
+    "typescript",
+    "ecmascript",
+    "helpers",
+    "utility functions"
+  ],
+  "main": "dist/commonjs/index.js",
+  "module": "dist/es/index.js",
+  "jsnext:main": "dist/es/index.js",
+  "sideEffects": false,
+  "files": [
+    "dist/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivosabev/helpers.git"
+  },
+  "author": "Ivo Sabev <ivolution@gmail.com> (http://ivosabev.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ivosabev/helpers/issues"
+  },
+  "homepage": "https://github.com/ivosabev/helpers#readme",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "dependencies": {
+    "luxon": "3.4.0",
+    "pluralize": "8.0.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@ivosabev/eslint-config": "0.5.2",
+    "@types/luxon": "3.3.1",
+    "@types/pluralize": "0.0.30",
+    "esbuild": "0.19.2",
+    "eslint": "8.47.0",
+    "npm-check": "6.0.1",
+    "prettier": "3.0.2",
+    "typescript": "5.1.6"
+  },
+  "scripts": {
+    "build-cjs-types": "tsc --emitDeclarationOnly --outDir \"./dist/commonjs\"",
+    "build-cjs": "tsc --project tsconfig.build.json --module commonjs --outDir \"./dist/commonjs\"",
+    "build-es-types": "tsc --emitDeclarationOnly --outDir \"./dist/es\"",
+    "build-es": "tsc --project tsconfig.build.json --module esnext --outDir \"./dist/es\"",
+    "build": "npm run clean && npm run build-es && npm run build-cjs && npm run build-es-types && npm run build-cjs-types",
+    "clean": "rm -rf ./dist && mkdir dist",
+    "compile:dist": "tsc --project tsconfig.dist.json",
+    "compile": "tsc",
+    "lint:check": "eslint src/**/*.ts",
+    "lint": "eslint src/**/*.ts --fix",
+    "prettier:check": "prettier . --check",
+    "prettier": "prettier . --write",
+    "up": "npm-check --update",
+    "watch": "npm run build && watchman-make -p 'src/**/*' --run 'npm run build'"
+  }
+}
