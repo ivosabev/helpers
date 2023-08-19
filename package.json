@@ -32,7 +32,8 @@
   "dependencies": {
     "luxon": "3.4.0",
     "pluralize": "8.0.0",
-    "validator": "13.11.0"
+    "validator": "13.11.0",
+    "zod": "3.22.2"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
