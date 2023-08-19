@@ -1,5 +1,5 @@
 import debounce from 'lodash/debounce';
-import isEmpty from './isEmpty';
+import {isEmpty} from './isEmpty';
 
 export interface Dictionary<T> {
   [index: string]: T;
