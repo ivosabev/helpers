@@ -31,7 +31,8 @@
   },
   "dependencies": {
     "luxon": "3.4.0",
-    "pluralize": "8.0.0"
+    "pluralize": "8.0.0",
+    "validator": "13.11.0"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
@@ -45,6 +46,7 @@
     "@ivosabev/eslint-config": "0.5.2",
     "@types/luxon": "3.3.1",
     "@types/pluralize": "0.0.30",
+    "@types/validator": "13.11.1",
     "esbuild": "0.19.2",
     "eslint": "8.47.0",
     "npm-check": "6.0.1",
