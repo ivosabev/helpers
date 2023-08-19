@@ -1,3 +1,4 @@
+export * from './applyDirectives';
 export * from './createFormattedDateResolver';
 export * from './createFormattedDateTimeResolver';
 export * from './fromGlobalId';

@@ -30,6 +30,7 @@
     "node": ">=16.0.0"
   },
   "dependencies": {
+    "@graphql-tools/utils": "10.0.5",
     "graphql": "16.8.0",
     "graphql-relay": "0.10.0",
     "lodash": "4.17.21",
