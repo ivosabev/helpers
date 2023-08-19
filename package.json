@@ -30,6 +30,7 @@
     "node": ">=16.0.0"
   },
   "dependencies": {
+    "lodash": "4.17.21",
     "luxon": "3.4.0",
     "pluralize": "8.0.0",
     "validator": "13.11.0",
@@ -45,6 +46,7 @@
   },
   "devDependencies": {
     "@ivosabev/eslint-config": "0.5.2",
+    "@types/lodash": "4.14.197",
     "@types/luxon": "3.3.1",
     "@types/node": "20.5.1",
     "@types/pluralize": "0.0.30",
