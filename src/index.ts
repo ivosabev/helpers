@@ -8,6 +8,7 @@ export interface Dictionary<T> {
 
 export * from './Array';
 export * from './Date';
+export * from './Dom';
 export * from './Number';
 export * from './Object';
 export * from './Other';
