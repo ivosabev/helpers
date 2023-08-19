@@ -26,6 +26,7 @@ export type Unpacked<T> = T extends (infer U)[] ? U : T;
 export {debounce, isEmpty, isDirty};
 
 export * from './Array';
+export * from './Boolean';
 export * from './Date';
 export * from './Dom';
 export * from './Function';
