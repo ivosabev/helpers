@@ -35,3 +35,4 @@ export * from './Number';
 export * from './Object';
 export * from './Other';
 export * from './String';
+export * from './Zod';
