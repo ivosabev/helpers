@@ -1,0 +1,1 @@
+export {singular} from 'pluralize';
