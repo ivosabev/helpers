@@ -697,24 +697,7 @@ const formats = {
       );
     },
     name: 'soap',
-    regex: RegExp(
-      `^${
-        reYear4
-        }-${
-        reMonthlz
-        }-${
-        reDaylz
-        }T${
-        reHour24lz
-        }:${
-        reMinutelz
-        }:${
-        reSecondlz
-        }${reFrac
-        }${reTzCorrection
-        }?`,
-      'i',
-    ),
+    regex: RegExp(`^${reYear4}-${reMonthlz}-${reDaylz}T${reHour24lz}:${reMinutelz}:${reSecondlz}${reFrac}${reTzCorrection}?`, 'i'),
   },
 
   relativeTextWeek: {
@@ -864,10 +847,7 @@ const formats = {
 
   weekdayOf: {
     name: 'weekdayof',
-    regex: RegExp(
-      `^(${  reReltextnumber  }|${  reReltexttext  })${  reSpace  }(${  reDayfull  }|${  reDayabbr  })${  reSpace  }of`,
-      'i',
-    ),
+    regex: RegExp(`^(${reReltextnumber}|${reReltexttext})${reSpace}(${reDayfull}|${reDayabbr})${reSpace}of`, 'i'),
     // todo
   },
 
@@ -1135,7 +1115,7 @@ const resultProto = {
   zones: 0,
 };
 
-export function strtotime(str, strZone = null) {
+export function strtotime(str, strZone?: string | null = null) {
   //       discuss at: http://locutus.io/php/strtotime/
   //      original by: Caio Ariede (http://caioariede.com)
   //      improved by: Kevin van Zonneveld (http://kvz.io)
@@ -1169,7 +1149,7 @@ export function strtotime(str, strZone = null) {
   }
 
   // TODO: Integrate this into formats instead of HACKing it
-  if (typeof str !== 'string'){
+  if (typeof str !== 'string') {
     str = String(str);
   }
 
@@ -1251,7 +1231,7 @@ export function strtotime(str, strZone = null) {
       const match = str.match(format.regex);
 
       if (match) {
-        // Skip tzCorrection since we are enforcing the timezone with strZone
+        // Skip tzCorrection since we are enforcing the timezone with ?
         if (strZone && format.name === 'tzcorrection') {
         } else {
           // care only about false results. Ignore other values
