@@ -30,6 +30,8 @@
     "node": ">=16.0.0"
   },
   "dependencies": {
+    "graphql": "16.8.0",
+    "graphql-relay": "0.10.0",
     "lodash": "4.17.21",
     "luxon": "3.4.0",
     "pluralize": "8.0.0",
