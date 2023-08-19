@@ -1,6 +1,8 @@
+// @ts-nocheck
 // This is modified version of kvz/locutus strtotime with support for timezones and unix timestamps
 // Source: https://github.com/kvz/locutus/blob/strtotime-patch-1/src/php/datetime/strtotime.js
 
+import type {Zone} from '.';
 import {DateTime} from '.';
 
 const reSpace = '[ \\t]+';
@@ -1125,7 +1127,7 @@ const resultProto = {
   zones: 0,
 };
 
-export default function strtotime(str, strZone = null) {
+export default function strtotime(str, strZone: string | Zone | null = null) {
   //       discuss at: http://locutus.io/php/strtotime/
   //      original by: Caio Ariede (http://caioariede.com)
   //      improved by: Kevin van Zonneveld (http://kvz.io)
