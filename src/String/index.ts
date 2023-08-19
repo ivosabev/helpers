@@ -9,6 +9,7 @@ export * from './nl2br';
 export * from './normalizeEmail';
 export * from './pascalCase';
 export * from './plural';
+export * from './removeInvalidParentheses';
 export * from './singular';
 export * from './slugify';
 export * from './upperFirst';
