@@ -12,4 +12,5 @@ export * from './plural';
 export * from './removeInvalidParentheses';
 export * from './singular';
 export * from './slugify';
+export * from './tokenize';
 export * from './upperFirst';
