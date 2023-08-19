@@ -1,0 +1,1 @@
+export {isPlural} from 'pluralize';
