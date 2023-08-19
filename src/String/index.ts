@@ -13,4 +13,5 @@ export * from './removeInvalidParentheses';
 export * from './singular';
 export * from './slugify';
 export * from './tokenize';
+export * from './toString';
 export * from './upperFirst';
