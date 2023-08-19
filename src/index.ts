@@ -1,5 +1,6 @@
 import debounce from 'lodash/debounce';
 import {isEmpty} from './isEmpty';
+import {isDirty} from './isDirty';
 
 export interface Dictionary<T> {
   [index: string]: T;
@@ -22,7 +23,7 @@ export type Unpacked<T> = T extends (infer U)[] ? U : T;
 
 //
 
-export {debounce, isEmpty};
+export {debounce, isEmpty, isDirty};
 
 export * from './Array';
 export * from './Date';
