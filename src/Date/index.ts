@@ -1,6 +1,5 @@
 import type {DateTimeOptions} from 'luxon';
 import {Duration, Info, Interval, DateTime, Settings, Zone} from 'luxon';
-// @ts-expect-error
 import strtotime from './strtotime';
 
 export * from './isDateTime';
