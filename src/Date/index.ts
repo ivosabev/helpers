@@ -14,6 +14,26 @@ declare module 'luxon/src/datetime' {
   }
 }
 
+const {toFormat: toFormatLuxon} = DateTime.prototype;
+
+DateTime.prototype.toFormat = function toFormat(fmt: any, options: any = null): string {
+  if (!this.isValid) {
+    return '';
+  }
+
+  if (fmt === 'X') {
+    // @ts-expect-error
+    return this.toMillis();
+  }
+
+  if (fmt === 'x') {
+    // @ts-expect-error
+    return this.toUnix();
+  }
+
+  return toFormatLuxon.call(this, fmt, options);
+};
+
 DateTime.prototype.toTimeString = function (fmt = DateTime.TIME_24_SIMPLE) {
   return this.setLocale('en').toLocaleString(fmt);
 };
