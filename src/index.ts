@@ -27,6 +27,7 @@ export {debounce, isEmpty, isDirty};
 
 export * from './Array';
 export * from './Boolean';
+export * from './Database';
 export * from './Date';
 export * from './Dom';
 export * from './Function';
