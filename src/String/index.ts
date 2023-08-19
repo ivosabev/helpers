@@ -1,7 +1,3 @@
-import {upperFirst} from 'lodash';
-
-export {upperFirst};
-
 export * from './abbr';
 export * from './isEmptyString';
 export * from './isPlural';
@@ -11,3 +7,4 @@ export * from './pascalCase';
 export * from './plural';
 export * from './singular';
 export * from './slugify';
+export * from './upperFirst';
