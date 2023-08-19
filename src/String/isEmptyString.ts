@@ -1,3 +1,3 @@
-export default function isEmptyString(v: string): boolean {
-  return v == null || String(v).trim().length === 0;
+export function isEmptyString(v: unknown): v is '' {
+  return typeof v === 'string' && v.length === 0;
 }
