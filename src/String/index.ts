@@ -1,4 +1,5 @@
 export * from './abbr';
+export * from './formatPhone';
 export * from './getStringSize';
 export * from './isEmail';
 export * from './isEmptyString';
