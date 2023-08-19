@@ -10,6 +10,7 @@ export * from './Array';
 export * from './Date';
 export * from './Dom';
 export * from './Function';
+export * from './GraphQL';
 export * from './Number';
 export * from './Object';
 export * from './Other';
