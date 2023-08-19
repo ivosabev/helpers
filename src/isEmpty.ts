@@ -1,5 +1,5 @@
 // Empty values: undefined, null, '', [], {}
-export default function isEmpty(v: any): boolean {
+export function isEmpty(v: any): boolean {
   if (typeof v === 'undefined' || v === 'undefined' || v === null || v === 'null') {
     return true;
   }
