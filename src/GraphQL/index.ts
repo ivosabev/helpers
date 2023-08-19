@@ -5,3 +5,4 @@ export * from './fromGlobalId';
 export * from './mapEdgesToArray';
 export * from './mergeTypeDefsAndResolvers';
 export * from './paginatedConnectionFromPromisedArray';
+export * from './parseGraphQLErrors';
