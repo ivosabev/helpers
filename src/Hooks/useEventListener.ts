@@ -1,39 +1,41 @@
+import type {RefObject} from 'react';
 import {useEffect, useRef} from 'react';
+import {useIsomorphicLayoutEffect} from './useIsomorphicLayoutEffect';
 
-type HandlerFn = (...args: any[]) => void;
-
-export const useEventListener = (eventName: string, handler: HandlerFn, element: HTMLElement | Window = window) => {
+export function useEventListener<K extends keyof WindowEventMap>(eventName: K, handler: (event: WindowEventMap[K]) => void): void;
+export function useEventListener<K extends keyof HTMLElementEventMap, T extends HTMLElement = HTMLDivElement>(
+  eventName: K,
+  handler: (event: HTMLElementEventMap[K]) => void,
+  element: RefObject<T>,
+): void;
+export function useEventListener<
+  KW extends keyof WindowEventMap,
+  KH extends keyof HTMLElementEventMap,
+  T extends HTMLElement | void = void,
+>(eventName: KW | KH, handler: (event: WindowEventMap[KW] | HTMLElementEventMap[KH] | Event) => void, element?: RefObject<T>) {
   // Create a ref that stores handler
-  const savedHandler = useRef<HandlerFn>();
+  const savedHandler = useRef(handler);
 
-  // Update ref.current value if handler changes.
-  // This allows our effect below to always get latest handler ...
-  // ... without us needing to pass it in effect deps array ...
-  // ... and potentially cause effect to re-run every render.
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     savedHandler.current = handler;
   }, [handler]);
 
-  useEffect(
-    () => {
-      // Make sure element supports addEventListener
-      // On
-      const isSupported = element && element.addEventListener;
-      if (!isSupported) {
-        return;
-      }
+  useEffect(() => {
+    // Define the listening target
+    const targetElement: T | Window = element?.current || window;
+    if (!(targetElement && targetElement.addEventListener)) {
+      return;
+    }
 
-      // Create event listener that calls handler function stored in ref
-      const eventListener = (event: Event) => savedHandler.current && savedHandler.current(event);
+    // Create event listener that calls handler function stored in ref
+    const eventListener: typeof handler = (event) => savedHandler.current(event);
 
-      // Add event listener
-      element.addEventListener(eventName, eventListener);
+    targetElement.addEventListener(eventName, eventListener);
 
-      // Remove event listener on cleanup
-      return () => {
-        element.removeEventListener(eventName, eventListener);
-      };
-    },
-    [eventName, element], // Re-run if eventName or element changes
-  );
-};
+    // Remove event listener on cleanup
+    // eslint-disable-next-line consistent-return
+    return () => {
+      targetElement.removeEventListener(eventName, eventListener);
+    };
+  }, [eventName, element]);
+}
