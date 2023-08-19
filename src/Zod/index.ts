@@ -49,6 +49,7 @@ export const castToNumberOptional =
 export const castToNumberNullable =
   (d?: number | null) =>
   (v: unknown): number | null =>
+    // @ts-expect-error
     v === null || v === 'null' ? null : toNumber(v, d);
 
 export const castToNumberNullableOptional =
