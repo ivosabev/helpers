@@ -2,6 +2,7 @@ export * from './abbr';
 export * from './getStringSize';
 export * from './isEmail';
 export * from './isEmptyString';
+export * from './isEmptyStringLoose';
 export * from './isPlural';
 export * from './isSingular';
 export * from './nl2br';
