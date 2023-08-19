@@ -1,6 +1,6 @@
 import type {DateTimeOptions} from 'luxon';
 import {Duration, Info, Interval, DateTime, Settings, Zone} from 'luxon';
-import strtotime from './strtotime';
+import {strtotime} from './strtotime';
 
 export * from './isDateTime';
 export * from './toDateTimeOrUndefined';
