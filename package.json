@@ -29,15 +29,17 @@
   "engines": {
     "node": ">=16.0.0"
   },
+  "dependencies": {
+    "lodash": "4.17.21",
+    "luxon": "3.4.0",
+    "pluralize": "8.0.0",
+    "validator": "13.11.0"
+  },
   "peerDependencies": {
     "@graphql-tools/utils": "10.0.5",
     "graphql": "^16.0.0",
     "graphql-relay": "0.10.0",
-    "lodash": "4.17.21",
-    "luxon": "3.4.0",
-    "pluralize": "8.0.0",
     "react": "18.2.0",
-    "validator": "13.11.0",
     "zod": "3.22.2"
   },
   "peerDependenciesMeta": {
@@ -58,14 +60,10 @@
     "eslint": "8.47.0",
     "graphql-relay": "0.10.0",
     "graphql": "^16.0.0",
-    "lodash": "4.17.21",
-    "luxon": "3.4.0",
     "npm-check": "6.0.1",
-    "pluralize": "8.0.0",
     "prettier": "3.0.2",
     "react": "18.2.0",
     "typescript": "5.1.6",
-    "validator": "13.11.0",
     "zod": "3.22.2"
   },
   "scripts": {
