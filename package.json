@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "lodash": "4.17.21",
-    "luxon": "3.4.0",
+    "luxon": "3.4.1",
     "pluralize": "8.0.0",
     "validator": "13.11.0"
   },
@@ -52,9 +52,9 @@
     "@ivosabev/eslint-config": "0.5.3",
     "@types/lodash": "4.14.197",
     "@types/luxon": "3.3.1",
-    "@types/node": "20.5.1",
+    "@types/node": "20.5.3",
     "@types/pluralize": "0.0.30",
-    "@types/react": "18.2.20",
+    "@types/react": "18.2.21",
     "@types/validator": "13.11.1",
     "esbuild": "0.19.2",
     "eslint": "8.47.0",
