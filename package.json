@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "lodash": "4.17.21",
-    "luxon": "3.4.1",
+    "luxon": "3.4.2",
     "pluralize": "8.0.0",
     "validator": "13.11.0"
   },
@@ -52,18 +52,18 @@
     "@ivosabev/eslint-config": "0.5.3",
     "@types/lodash": "4.14.197",
     "@types/luxon": "3.3.1",
-    "@types/node": "20.5.3",
+    "@types/node": "20.5.7",
     "@types/pluralize": "0.0.30",
     "@types/react": "18.2.21",
     "@types/validator": "13.11.1",
     "esbuild": "0.19.2",
-    "eslint": "8.47.0",
+    "eslint": "8.48.0",
     "graphql": "^16.0.0",
     "graphql-relay": "0.10.0",
     "npm-check": "6.0.1",
     "prettier": "3.0.2",
     "react": "18.2.0",
-    "typescript": "5.1.6",
+    "typescript": "5.2.2",
     "zod": "3.22.2"
   },
   "scripts": {
