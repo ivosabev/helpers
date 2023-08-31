@@ -49,9 +49,9 @@
   },
   "devDependencies": {
     "@graphql-tools/utils": "10.0.5",
-    "@ivosabev/eslint-config": "0.5.3",
+    "@ivosabev/eslint-config": "0.5.5",
     "@types/lodash": "4.14.197",
-    "@types/luxon": "3.3.1",
+    "@types/luxon": "3.3.2",
     "@types/node": "20.5.7",
     "@types/pluralize": "0.0.30",
     "@types/react": "18.2.21",
@@ -61,7 +61,7 @@
     "graphql": "^16.0.0",
     "graphql-relay": "0.10.0",
     "npm-check": "6.0.1",
-    "prettier": "3.0.2",
+    "prettier": "3.0.3",
     "react": "18.2.0",
     "typescript": "5.2.2",
     "zod": "3.22.2"
