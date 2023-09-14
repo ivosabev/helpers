@@ -1,7 +1,7 @@
 import CryptoJS from 'crypto-js';
 import {isUndefined} from '../Other/isUndefined';
 
-export function decryptText(text: string, secret?: string) {
+export function decrypt(text: string, secret?: string) {
   if (isUndefined(secret) && isUndefined(process.env.SECRET)) {
     throw new Error('Environment variable SECRET was not found.');
   }
@@ -10,5 +10,5 @@ export function decryptText(text: string, secret?: string) {
     throw new Error('Secret was not found.');
   }
 
-  return CryptoJS.AES.decrypt(text, secret ?? process.env.SECRET);
+  return CryptoJS.AES.decrypt(JSON.parse(text), secret ?? process.env.SECRET);
 }
