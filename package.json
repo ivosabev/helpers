@@ -79,6 +79,7 @@
     "lint": "eslint src/**/*.ts --fix",
     "prettier:check": "prettier . --check",
     "prettier": "prettier . --write",
+    "release": "npm run build && npx release-it",
     "up": "npm-check --update",
     "watch": "npm run build && watchman-make -p 'src/**/*' --run 'npm run build'"
   }
