@@ -1,4 +1,6 @@
 export * from './abbr';
+export * from './decryptText';
+export * from './encryptText';
 export * from './formatPhone';
 export * from './getStringSize';
 export * from './isEmail';
