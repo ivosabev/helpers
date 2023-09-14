@@ -1,10 +1,13 @@
 import crypto from 'node:crypto';
+import {isUndefined} from '../Other/isUndefined';
 
-export function encryptText(text: string) {
-  if (process.env.SECRET === undefined) throw new Error('Environment variable SECRET was not found.');
+export function encryptText(text: string, customSecret?: string) {
+  if (isUndefined(customSecret) && isUndefined(process.env.SECRET)) {
+    throw new Error('Environment variable SECRET was not found.');
+  }
 
   const ALGO = 'aes-192-cbc';
-  const KEY = crypto.scryptSync(process.env.SECRET, 'salt', 24);
+  const KEY = crypto.scryptSync((customSecret ?? process.env.SECRET)!, 'salt', 24);
 
   const iv = crypto.randomBytes(16);
   const cipher = crypto.createCipheriv(ALGO, KEY, iv);
