@@ -1,7 +1,7 @@
 import CryptoJS from 'crypto-js';
 import {isUndefined} from '../Other/isUndefined';
 
-export function encrypt(text: string | Record<string, any> | any[], customSecret?: string) {
+export function encrypt(text: string, customSecret?: string) {
   if (isUndefined(customSecret) && isUndefined(process.env.SECRET)) {
     throw new Error('Environment variable SECRET was not found.');
   }
@@ -12,5 +12,5 @@ export function encrypt(text: string | Record<string, any> | any[], customSecret
     throw new Error('Secret was not found.');
   }
 
-  return CryptoJS.AES.encrypt(JSON.stringify(text), secret).toString();
+  return CryptoJS.AES.encrypt(text, secret).toString();
 }

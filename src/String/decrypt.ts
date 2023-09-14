@@ -12,5 +12,5 @@ export function decrypt(text: string, customSecret?: string) {
     throw new Error('Secret was not found.');
   }
 
-  return CryptoJS.AES.decrypt(JSON.parse(text), secret);
+  return CryptoJS.AES.decrypt(text, secret);
 }
