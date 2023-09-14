@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "lodash": "4.17.21",
-    "luxon": "3.4.2",
+    "luxon": "3.4.3",
     "pluralize": "8.0.0",
     "validator": "13.11.0"
   },
@@ -50,14 +50,14 @@
   "devDependencies": {
     "@graphql-tools/utils": "10.0.6",
     "@ivosabev/eslint-config": "0.5.5",
-    "@types/lodash": "4.14.197",
+    "@types/lodash": "4.14.198",
     "@types/luxon": "3.3.2",
-    "@types/node": "20.5.9",
+    "@types/node": "20.6.0",
     "@types/pluralize": "0.0.30",
     "@types/react": "18.2.21",
     "@types/validator": "13.11.1",
-    "esbuild": "0.19.2",
-    "eslint": "8.48.0",
+    "esbuild": "0.19.3",
+    "eslint": "8.49.0",
     "graphql": "^16.0.0",
     "graphql-relay": "0.10.0",
     "npm-check": "6.0.1",
