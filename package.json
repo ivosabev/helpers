@@ -50,16 +50,16 @@
   },
   "devDependencies": {
     "@graphql-tools/utils": "10.0.6",
-    "@ivosabev/eslint-config": "0.5.6",
+    "@ivosabev/eslint-config": "0.5.7",
     "@types/crypto-js": "4.1.2",
     "@types/lodash": "4.14.199",
     "@types/luxon": "3.3.2",
-    "@types/node": "20.7.0",
+    "@types/node": "20.8.3",
     "@types/pluralize": "0.0.31",
-    "@types/react": "18.2.23",
+    "@types/react": "18.2.25",
     "@types/validator": "13.11.2",
-    "esbuild": "0.19.3",
-    "eslint": "8.50.0",
+    "esbuild": "0.19.4",
+    "eslint": "8.51.0",
     "graphql": "16.8.1",
     "graphql-relay": "0.10.0",
     "npm-check": "6.0.1",
@@ -67,7 +67,7 @@
     "react": "18.2.0",
     "release-it": "16.2.1",
     "typescript": "5.2.2",
-    "zod": "3.22.2"
+    "zod": "3.22.4"
   },
   "scripts": {
     "build-cjs-types": "tsc --emitDeclarationOnly --outDir \"./dist/commonjs\"",
