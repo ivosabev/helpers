@@ -2,6 +2,7 @@ import {orderBy} from 'lodash';
 
 export {orderBy};
 
+export * from './isEqual';
 export * from './isIterable';
 export * from './isNull';
 export * from './isNullOrUndefined';
