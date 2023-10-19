@@ -4,6 +4,8 @@ import {strtotime} from './strtotime';
 
 export * from './isDateTime';
 export * from './toDateTimeOrUndefined';
+export * from './toRelativeTime';
+export {strtotime};
 
 // Do some bad things to Luxon
 
