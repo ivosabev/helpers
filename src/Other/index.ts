@@ -1,6 +1,6 @@
-import {isEqual, orderBy} from 'lodash';
+import {orderBy} from 'lodash';
 
-export {orderBy, isEqual};
+export {orderBy};
 
 export * from './isIterable';
 export * from './isNull';
