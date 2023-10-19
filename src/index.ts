@@ -1,6 +1,6 @@
-import debounce from 'lodash/debounce';
-import {isEmpty} from './isEmpty';
-import {isDirty} from './isDirty';
+export {isDirty} from './isDirty';
+export {isEmpty} from './isEmpty';
+export {debounce} from 'lodash';
 
 export interface Dictionary<T> {
   [index: string]: T;
@@ -20,10 +20,6 @@ export type Optional<T> = T | undefined | null;
 export type OptionalKeys<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
 
 export type Unpacked<T> = T extends (infer U)[] ? U : T;
-
-//
-
-export {debounce, isEmpty, isDirty};
 
 export * from './Array';
 export * from './Boolean';

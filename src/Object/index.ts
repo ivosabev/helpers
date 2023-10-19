@@ -2,6 +2,8 @@ import hash from 'object-hash';
 
 export {cloneDeep, defaultsDeep} from 'lodash';
 
+export {hash};
+
 export * from './get';
 export * from './isEmptyObject';
 export * from './isObjectLike';
