@@ -1,6 +1,8 @@
-export {isDirty} from './isDirty';
-export {isEmpty} from './isEmpty';
-export {debounce, throttle} from 'lodash';
+import {debounce, throttle} from 'lodash';
+import {isDirty} from './isDirty';
+import {isEmpty} from './isEmpty';
+
+export {isDirty, isEmpty, debounce, throttle};
 
 export interface Dictionary<T> {
   [index: string]: T;
