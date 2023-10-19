@@ -1,4 +1,4 @@
-export {capitalize} from 'lodash';
+export {capitalize, kebabCase} from 'lodash';
 
 export * from './abbr';
 export * from './decrypt';
