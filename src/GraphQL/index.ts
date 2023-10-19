@@ -6,3 +6,4 @@ export * from './mapEdgesToArray';
 export * from './mergeTypeDefsAndResolvers';
 export * from './paginatedConnectionFromPromisedArray';
 export * from './parseGraphQLErrors';
+export * from './toGlobalId';
