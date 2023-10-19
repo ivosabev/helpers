@@ -56,6 +56,7 @@
     "@types/lodash": "4.14.200",
     "@types/luxon": "3.3.3",
     "@types/node": "20.8.7",
+    "@types/object-hash": "3.0.5",
     "@types/pluralize": "0.0.32",
     "@types/react": "18.2.29",
     "@types/validator": "13.11.5",
