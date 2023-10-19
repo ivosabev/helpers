@@ -1,6 +1,6 @@
 import hash from 'object-hash';
 
-export {cloneDeep, has, defaultsDeep} from 'lodash';
+export {cloneDeep, has, merge, defaultsDeep} from 'lodash';
 
 export {hash};
 
