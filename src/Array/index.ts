@@ -1,4 +1,4 @@
-export {shuffle, difference, intersection, flatten, times} from 'lodash';
+export {shuffle, last, difference, intersection, flatten, times} from 'lodash';
 
 export * from './chunk';
 export * from './isEmptyArray';
