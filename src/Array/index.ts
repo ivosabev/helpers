@@ -1,4 +1,4 @@
-export {intersection} from 'lodash';
+export {intersection, times} from 'lodash';
 
 export * from './chunk';
 export * from './isEmptyArray';
