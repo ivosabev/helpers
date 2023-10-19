@@ -33,6 +33,7 @@
     "crypto-js": "4.1.1",
     "lodash": "4.17.21",
     "luxon": "3.4.3",
+    "object-hash": "3.0.0",
     "pluralize": "8.0.0",
     "validator": "13.11.0"
   },

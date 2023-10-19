@@ -1,6 +1,7 @@
 import defaultsDeep from 'lodash/defaultsDeep';
+import hash from 'object-hash';
 
-export {defaultsDeep};
+export {defaultsDeep, hash};
 
 export * from './get';
 export * from './isEmptyObject';
