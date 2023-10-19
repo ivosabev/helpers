@@ -31,6 +31,7 @@ export * from './Database';
 export * from './Date';
 export * from './Dom';
 export * from './Function';
+export * from './Geo';
 export * from './GraphQL';
 export * from './Hooks';
 export * from './Number';
