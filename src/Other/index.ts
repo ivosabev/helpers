@@ -1,3 +1,5 @@
+export {orderBy} from 'lodash';
+
 export * from './isIterable';
 export * from './isNull';
 export * from './isNullOrUndefined';

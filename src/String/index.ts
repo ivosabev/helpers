@@ -1,3 +1,5 @@
+export {capitalize} from 'lodash';
+
 export * from './abbr';
 export * from './decrypt';
 export * from './encrypt';
