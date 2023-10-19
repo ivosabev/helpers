@@ -1,7 +1,6 @@
 import {z} from 'zod';
-
-import {toNumber} from '../Number/toNumber';
 import {toBoolean} from '../Boolean/toBoolean';
+import {toNumber} from '../Number/toNumber';
 
 export const emailSchema = z.string().email();
 export type Email = z.infer<typeof emailSchema>;

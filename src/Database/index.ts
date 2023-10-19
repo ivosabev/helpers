@@ -1,8 +1,8 @@
 import {z} from 'zod';
-import {castToNumber, castToString} from '../Zod';
-import {toNumber} from '../Number';
 import {toArray} from '../Array';
+import {toNumber} from '../Number';
 import {toString} from '../String';
+import {castToNumber, castToString} from '../Zod';
 
 export const numericIdSchema = z.preprocess(castToNumber(), z.number().int().positive('Required'));
 export type NumericId = z.infer<typeof numericIdSchema>;
