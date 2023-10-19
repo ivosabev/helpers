@@ -11,6 +11,7 @@ export * from './isEmptyStringLoose';
 export * from './isPlural';
 export * from './isSingular';
 export * from './isString';
+export * from './lowerFirst';
 export * from './nl2br';
 export * from './normalizeEmail';
 export * from './pascalCase';
