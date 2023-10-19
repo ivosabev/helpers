@@ -1,4 +1,4 @@
-export {intersection, flatten, times} from 'lodash';
+export {difference, intersection, flatten, times} from 'lodash';
 
 export * from './chunk';
 export * from './isEmptyArray';
