@@ -3,6 +3,7 @@ import {Duration, Info, Interval, DateTime, Settings, Zone} from 'luxon';
 import {strtotime} from './strtotime';
 
 export * from './isDateTime';
+export * from './toDateTimeFromRaw';
 export * from './toDateTimeOrUndefined';
 export * from './toRelativeTime';
 export {strtotime};
@@ -22,13 +23,6 @@ DateTime.prototype.toTimeString = function (fmt = DateTime.TIME_24_SIMPLE) {
 
 DateTime.prototype.toUnix = function (): number {
   return Number(this.toFormat('X'));
-};
-
-// @ts-expect-error
-DateTime.fromRaw = function (raw: string, options?: DateTimeOptions): DateTime {
-  const zone = (options && options.zone) || null;
-  const timestamp: number = strtotime(raw, zone ? (typeof zone === 'string' ? zone : zone.name) : null);
-  return timestamp ? DateTime.fromMillis(timestamp, options) : DateTime.invalid('Could not parse successfully the given value.');
 };
 
 export {DateTime, Duration, Info, Interval, Settings, Zone};
