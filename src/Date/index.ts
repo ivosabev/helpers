@@ -1,4 +1,3 @@
-import type {DateTimeOptions} from 'luxon';
 import {Duration, Info, Interval, DateTime, Settings, Zone} from 'luxon';
 import {strtotime} from './strtotime';
 
