@@ -1,4 +1,4 @@
-import {Duration, Info, Interval, DateTime, Settings, Zone} from 'luxon';
+import {DateTime, Duration, Info, Interval, Settings, Zone} from 'luxon';
 import {strtotime} from './strtotime';
 
 export * from './isDateTime';
