@@ -1,6 +1,6 @@
 type RequestInitAdvanced = RequestInit & {timeout: number};
 
-export async function fetchAdvanced(resource: NodeJS.fetch.RequestInfo, options: RequestInitAdvanced = {timeout: 10000}) {
+export async function fetchAdvanced(resource: RequestInfo, options: RequestInitAdvanced = {timeout: 10000}) {
   const {timeout = 10000} = options;
 
   const controller = new AbortController();
