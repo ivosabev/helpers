@@ -1,6 +1,10 @@
 import {z} from 'zod';
 import {toBoolean} from '../Boolean/toBoolean';
 import {toNumber} from '../Number/toNumber';
+import {validateCin} from './validateCin';
+import {validateEgn} from './validateEgn';
+import {validateIban} from './validateIban';
+import {validatePn} from './validatePn';
 
 export const emailSchema = z.string().email();
 export type Email = z.infer<typeof emailSchema>;
@@ -14,6 +18,34 @@ export const zipSchema = z.preprocess((v) => String(v).trim().slice(0, 5), z.str
 //   .regex(/^[0-9]{5}(?:-[0-9]{4})?$/)
 //   .transform((v) => String(v).trim().slice(0, 5));
 export type Zip = z.infer<typeof zipSchema>;
+
+// Bulgarian Numbers Validation
+
+export function bulgarianCompanyIdentificationNumberSchema(message = 'Невалиден ЕИК номер') {
+  return z.preprocess(castToString(), z.string()).refine(validateCin, {message});
+}
+export type BulgarianCompanyIdentificationNumber = String;
+
+export function bulgarianPersonalIdentificationNumberSchema(message = 'Невалиден ЕГН номер') {
+  return z.preprocess(castToString(), z.string()).refine(validateEgn, {message});
+}
+export type BulgarianPersonalIdentificationNumber = String;
+
+export function bulgarianForeignPersonalNumberSchema(message = 'Невалиден ЛНЧ номер') {
+  return z.preprocess(castToString(), z.string()).refine(validatePn, {message});
+}
+
+export type BulgarianForeignPersonalNumber = String;
+
+//
+
+export function ibanSchema(message = 'Invalid IBAN') {
+  return z.preprocess(castToString(), z.string()).refine(validateIban, {message});
+}
+
+export type Iban = String;
+
+//
 
 export const castToBoolean =
   (d?: boolean) =>
