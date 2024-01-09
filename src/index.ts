@@ -36,5 +36,6 @@ export * from './Number';
 export * from './Object';
 export * from './Other';
 export * from './String';
+export * from './Types';
 export * from './Url';
 export * from './Zod';
