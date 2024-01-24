@@ -1,3 +1,5 @@
+// Based on https://github.com/uidotdev/usehooks, with changes to the initial state
+
 import React from 'react';
 
 export function useWindowSize() {
