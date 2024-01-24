@@ -6,3 +6,4 @@ export * from './useKeyboardEvent';
 export * from './useSafeLayoutEffect';
 export * from './useTimeout';
 export * from './useUpdateEffect';
+export * from './useWindowSize';
