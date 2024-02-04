@@ -1,6 +1,7 @@
 // Based on https://github.com/uidotdev/usehooks, with changes to the initial state
 
 import React from 'react';
+import {useIsomorphicLayoutEffect} from './useIsomorphicLayoutEffect';
 
 export function useWindowSize() {
   const [size, setSize] = React.useState<{height: number; width: number}>({
@@ -8,7 +9,7 @@ export function useWindowSize() {
     width: typeof window !== 'undefined' ? window.screen.width : 0,
   });
 
-  React.useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const handleResize = () => {
       setSize({
         height: window.innerHeight,
