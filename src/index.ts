@@ -35,6 +35,7 @@ export * from './Hooks';
 export * from './Number';
 export * from './Object';
 export * from './Other';
+export * from './Remix';
 export * from './String';
 export * from './Types';
 export * from './Url';
