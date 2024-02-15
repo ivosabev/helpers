@@ -1,3 +1,5 @@
+import {fromStringToJSON} from './fromStringToJSON';
+
 /**
  * Convert value to JSON
  *
@@ -10,7 +12,9 @@ export function toJSON(value: FormData) {
         // NOTE: Allow for the input array naming convention of name[]
         const v = value.getAll(k);
         const hasBrackets = k.endsWith('[]');
-        return [hasBrackets ? k.slice(0, -2) : k, v.length > 1 || hasBrackets ? v : v[0]];
+        const kk = hasBrackets ? k.slice(0, -2) : k;
+        const vv = v.length > 1 || hasBrackets ? v.map(fromStringToJSON) : fromStringToJSON(v[0]);
+        return [kk, vv];
       }),
     );
   }
