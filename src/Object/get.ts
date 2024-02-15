@@ -5,8 +5,8 @@ type GetFieldType<Obj, Path> = Path extends `${infer Left}.${string}`
     ? Obj[Left]
     : undefined
   : Path extends keyof Obj
-  ? Obj[Path]
-  : undefined;
+    ? Obj[Path]
+    : undefined;
 
 export function get<TData, TPath extends string, TDefault = GetFieldType<TData, TPath>>(
   data: TData,
