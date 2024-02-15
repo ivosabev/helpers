@@ -3,6 +3,7 @@ import hash from 'object-hash';
 
 export {hash, cloneDeep, has, merge, defaultsDeep, pickBy};
 
+export * from './fromStringToJSON';
 export * from './get';
 export * from './isEmptyObject';
 export * from './isObjectLike';
