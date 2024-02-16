@@ -55,17 +55,17 @@ export const castToBoolean =
 export const castToBooleanOptional =
   (d?: boolean) =>
   (v: unknown): boolean | undefined =>
-    typeof v === 'undefined' ? undefined : toBoolean(v, d);
+    typeof v === 'undefined' ? undefined : String(v).trim() === '' ? undefined : toBoolean(v, d);
 
 export const castToBooleanNullable =
   (d?: boolean | null) =>
   (v: unknown): boolean | null =>
-    v === null || v === 'null' ? null : toBoolean(v, d);
+    v === null || v === 'null' ? null : String(v).trim() === '' ? null : toBoolean(v, d);
 
 export const castToBooleanNullableOptional =
   (d?: boolean) =>
   (v: unknown): boolean | null | undefined =>
-    typeof v === 'undefined' ? undefined : v === null || v === 'null' ? null : toBoolean(v, d);
+    typeof v === 'undefined' ? undefined : v === null || v === 'null' ? null : String(v).trim() === '' ? null : toBoolean(v, d);
 
 export const castToNumber =
   (d?: number) =>
@@ -75,18 +75,18 @@ export const castToNumber =
 export const castToNumberOptional =
   (d?: number) =>
   (v: unknown): number | undefined =>
-    typeof v === 'undefined' ? undefined : toNumber(v, d);
+    typeof v === 'undefined' ? undefined : String(v).trim() === '' ? undefined : toNumber(v, d);
 
 export const castToNumberNullable =
   (d?: number | null) =>
   (v: unknown): number | null =>
     // @ts-expect-error
-    v === null || v === 'null' ? null : toNumber(v, d);
+    v === null || v === 'null' ? null : String(v).trim() === '' ? null : toNumber(v, d);
 
 export const castToNumberNullableOptional =
   (d?: number) =>
   (v: unknown): number | null | undefined =>
-    typeof v === 'undefined' ? undefined : v === null || v === 'null' ? null : toNumber(v, d);
+    typeof v === 'undefined' ? undefined : v === null || v === 'null' ? null : String(v).trim() === '' ? null : toNumber(v, d);
 
 export const castToString =
   (d?: string) =>
@@ -96,14 +96,14 @@ export const castToString =
 export const castToStringOptional =
   (d?: string) =>
   (v: unknown): string | undefined =>
-    typeof v === 'undefined' ? undefined : String(v).trim() || d || '';
+    typeof v === 'undefined' ? undefined : String(v).trim() === '' ? undefined : String(v).trim() || d || '';
 
 export const castToStringNullable =
   (d?: string | null) =>
   (v: unknown): string | null =>
-    v === null || v === 'null' ? null : String(v).trim() || d || '';
+    v === null || v === 'null' ? null : String(v).trim() === '' ? null : String(v).trim() || d || '';
 
 export const castToStringNullableOptional =
   (d?: string) =>
   (v: unknown): string | null | undefined =>
-    typeof v === 'undefined' ? undefined : v === null || v === 'null' ? null : String(v).trim() || d || '';
+    typeof v === 'undefined' ? undefined : v === null || v === 'null' ? null : String(v).trim() === '' ? null : String(v).trim() || d || '';
