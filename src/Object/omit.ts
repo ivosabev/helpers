@@ -1,15 +1,16 @@
-// TODO: Export from somewhere where it can be imported into multiple files and used
-type PropertyName = string | number | symbol;
-type Many<T> = T | ReadonlyArray<T>;
-type GlobalPartial<T> = Partial<T>;
-type PartialObject<T> = GlobalPartial<T>;
+// SOURCE: https://gist.github.com/KonradSzwarc/f42d187532ec0b4cae81c9fa0ade48f6
 
-// NOTE: TypeScript signatures copied from lodash
-export function omit<T extends object, K extends PropertyName[]>(obj: T | null | undefined, paths: K): Pick<T, Exclude<keyof T, K[number]>>;
-export function omit<T extends object, K extends keyof T>(obj: T | null | undefined, paths: Array<Many<K>>): Omit<T, K>;
-export function omit<T extends object>(object: T | null | undefined, paths: Array<Many<PropertyName>>): PartialObject<T>;
-export function omit(obj: any, paths: any[]) {
-  const objCopy = {...obj};
-  paths.forEach((prop) => delete objCopy[prop]);
-  return objCopy;
-}
+export const omit = <T extends Record<string, unknown>, K extends [...(keyof T)[]]>(
+  originalObject: T,
+  keysToOmit: K,
+): {
+  [K2 in Exclude<keyof T, K[number]>]: T[K2];
+} => {
+  const clonedObject = {...originalObject};
+
+  for (const path of keysToOmit) {
+    delete clonedObject[path];
+  }
+
+  return clonedObject;
+};
