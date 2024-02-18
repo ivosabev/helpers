@@ -1,1 +1,3 @@
-export {isSingular} from 'pluralize';
+import pluralize from 'pluralize';
+
+export const isSingular = pluralize.isSingular;

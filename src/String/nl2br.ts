@@ -1,4 +1,5 @@
-const jsxRuntime = require('react/jsx-runtime');
+// @ts-expect-error
+import {jsx as _jsx} from 'react/jsx-runtime';
 
 const newlineRegex = /(\r\n|\r|\n)/g;
 
@@ -9,7 +10,7 @@ export const nl2br = (str: any) => {
 
   return str.split(newlineRegex).map((line, index) => {
     if (line.match(newlineRegex)) {
-      return jsxRuntime.jsx('br', {key: index});
+      return _jsx('br', {key: index});
     }
     return line;
   });

@@ -1,3 +1,3 @@
-import {set} from 'lodash';
+import set from 'lodash/set';
 
 export {set};

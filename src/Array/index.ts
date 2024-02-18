@@ -1,4 +1,10 @@
-import {difference, findLastIndex, flatten, intersection, last, shuffle, times} from 'lodash';
+import difference from 'lodash/difference';
+import findLastIndex from 'lodash/findLastIndex';
+import flatten from 'lodash/flatten';
+import intersection from 'lodash/intersection';
+import last from 'lodash/last';
+import shuffle from 'lodash/shuffle';
+import times from 'lodash/times';
 
 export {shuffle, last, difference, intersection, flatten, times, findLastIndex};
 

@@ -1,4 +1,8 @@
-import {cloneDeep, defaultsDeep, has, merge, pickBy} from 'lodash';
+import cloneDeep from 'lodash/cloneDeep';
+import defaultsDeep from 'lodash/defaultsDeep';
+import has from 'lodash/has';
+import merge from 'lodash/merge';
+import pickBy from 'lodash/pickBy';
 import hash from 'object-hash';
 
 export {hash, cloneDeep, has, merge, defaultsDeep, pickBy};

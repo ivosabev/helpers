@@ -1,4 +1,5 @@
-import {capitalize, kebabCase} from 'lodash';
+import capitalize from 'lodash/capitalize';
+import kebabCase from 'lodash/kebabCase';
 
 export {capitalize, kebabCase};
 
