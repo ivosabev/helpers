@@ -1,4 +1,5 @@
-import {debounce, throttle} from 'lodash';
+import debounce from 'lodash/debounce';
+import throttle from 'lodash/throttle';
 import {isDirty} from './isDirty';
 import {isEmpty} from './isEmpty';
 

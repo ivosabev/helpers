@@ -1,1 +1,3 @@
-export {plural} from 'pluralize';
+import pluralize from 'pluralize';
+
+export const plural = pluralize.plural;
