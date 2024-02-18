@@ -1,5 +1,6 @@
 import {z} from 'zod';
 import {toBoolean} from '../Boolean/toBoolean';
+import {toBigInt} from '../Number/toBigInt';
 import {toNumber} from '../Number/toNumber';
 import {validateCin} from './validateCin';
 import {validateEgn} from './validateEgn';
@@ -46,6 +47,27 @@ export function ibanSchema(message = 'Invalid IBAN') {
 export type Iban = String;
 
 //
+
+export const castToBigInt =
+  (d?: bigint | number) =>
+  (v: unknown): bigint =>
+    toBigInt(v, d);
+
+export const castToBigIntOptional =
+  (d?: bigint | number) =>
+  (v: unknown): bigint | undefined =>
+    typeof v === 'undefined' ? undefined : String(v).trim() === '' ? undefined : toBigInt(v, d);
+
+export const castToBigIntNullable =
+  (d?: bigint | number | null) =>
+  (v: unknown): bigint | null =>
+    // @ts-expect-error
+    v === null || v === 'null' ? null : String(v).trim() === '' ? null : toBigInt(v, d);
+
+export const castToBigIntNullableOptional =
+  (d?: bigint | number) =>
+  (v: unknown): bigint | null | undefined =>
+    typeof v === 'undefined' ? undefined : v === null || v === 'null' ? null : String(v).trim() === '' ? null : toBigInt(v, d);
 
 export const castToBoolean =
   (d?: boolean) =>

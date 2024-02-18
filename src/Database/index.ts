@@ -1,14 +1,30 @@
 import {z} from 'zod';
 import {toArray} from '../Array';
-import {toNumber} from '../Number';
+import {toBigInt, toNumber} from '../Number';
 import {toString} from '../String';
-import {castToNumber, castToString} from '../Zod';
+import {castToBigInt, castToNumber, castToString} from '../Zod';
 
-export const numericIdSchema = z.preprocess(castToNumber(), z.number().int().positive('Required'));
+export const intIdSchema = z.preprocess(castToNumber(), z.number().int().positive('Required'));
+export type IntId = z.infer<typeof intIdSchema>;
+
+export function createIntIdsSchema(idSchema: typeof intIdSchema) {
+  return z.preprocess((v) => toArray(String(v).split(',').map(toNumber)), z.array(idSchema));
+}
+
+export const bigIntIdSchema = z.preprocess(castToBigInt(), z.bigint().positive('Required'));
+export type BigIntId = z.infer<typeof bigIntIdSchema>;
+
+export function createBigIntIdsSchema(idSchema: typeof bigIntIdSchema) {
+  return z.preprocess((v) => toArray(String(v).split(',').map(toBigInt)), z.array(idSchema));
+}
+
+export const numericIdSchema = z.union([intIdSchema, bigIntIdSchema]);
 export type NumericId = z.infer<typeof numericIdSchema>;
 
 export function createNumericIdsSchema(idSchema: typeof numericIdSchema) {
-  return z.preprocess((v) => toArray(String(v).split(',').map(toNumber)), z.array(idSchema));
+  const fn = String(bigIntIdSchema._def.schema._def.typeName) === 'ZodBigInt' ? toBigInt : toNumber;
+  // @ts-expect-error
+  return z.preprocess((v) => toArray(String(v).split(',').map(fn)), z.array(idSchema));
 }
 
 export const stringIdSchema = z.preprocess(castToString(), z.string().min(0, 'Required'));
