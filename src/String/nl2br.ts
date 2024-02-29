@@ -1,4 +1,3 @@
-// @ts-expect-error
 import {jsx as _jsx} from 'react/jsx-runtime';
 
 const newlineRegex = /(\r\n|\r|\n)/g;
