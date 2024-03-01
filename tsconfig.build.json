@@ -5,8 +5,8 @@
   "exclude": ["**/*.test.ts"],
 
   "compilerOptions": {
-    "declaration": true,
-    "declarationMap": true,
+    "declaration": false,
+    "declarationMap": false,
     "noEmit": false /* Enabled in the base config */,
     "removeComments": true
   }

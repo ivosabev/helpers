@@ -7,7 +7,7 @@
 
     // "allowJs": true,
     "allowSyntheticDefaultImports": true,
-    // "declaration": true,
+    "declaration": true,
     // "declarationDir": "dist",
     "downlevelIteration": true,
     "esModuleInterop": true,

@@ -5,20 +5,19 @@ import typescript from '@rollup/plugin-typescript';
 import sourceMaps from 'rollup-plugin-sourcemaps';
 
 export default {
+  external: [/node_modules/],
   input: 'src/index.ts',
   output: [
     {
       dir: 'dist/esm',
-      // exports: 'named',
       format: 'esm',
-      // preserveModules: true,
+      sourcemap: true,
     },
     {
       dir: 'dist/cjs',
-      // exports: 'named',
       format: 'cjs',
-      // preserveModules: true,
+      sourcemap: true,
     },
   ],
-  plugins: [resolve(), typescript(), commonjs({include: 'node_modules/**'}), json(), sourceMaps()],
+  plugins: [resolve(), typescript({tsconfig: './tsconfig.build.json'}), commonjs({include: 'node_modules/**'}), json(), sourceMaps()],
 };
