@@ -81,11 +81,8 @@
   },
   "scripts": {
     "build-cjs-types": "tsc --emitDeclarationOnly --outDir \"./dist/cjs\"",
-    "build-cjs": "tsc --project tsconfig.build.json --module commonjs --outDir \"./dist/cjs\"",
-    "build-es-types": "tsc --emitDeclarationOnly --outDir \"./dist/esm\"",
-    "build-es": "tsc --project tsconfig.build.json --module esnext --outDir \"./dist/esm\"",
-    "build-old": "npm run clean && npm run build-es && npm run build-cjs && npm run build-es-types && npm run build-cjs-types",
-    "build": "npm run clean && rollup -c rollup.config.mjs",
+    "build-esm-types": "tsc --emitDeclarationOnly --outDir \"./dist/esm\"",
+    "build": "npm run clean && rollup -c rollup.config.mjs && npm run build-cjs-types && npm run build-esm-types",
     "clean": "rm -rf ./dist && mkdir dist",
     "compile:dist": "tsc --project tsconfig.dist.json",
     "compile": "tsc",
