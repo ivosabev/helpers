@@ -1,5 +1,5 @@
-import {DateTime} from '.';
+import {DateTime} from 'luxon';
 
-export const isDateTime = (obj: any) => {
+export function isDateTime(obj: any) {
   return typeof obj === 'object' && obj instanceof DateTime;
-};
+}
