@@ -10,6 +10,7 @@ import packageJson from './package.json' assert { type: 'json' };
 
 export default [
   {
+    external: [/node_modules/],
     input: './src/index.ts',
     output: [
       {
