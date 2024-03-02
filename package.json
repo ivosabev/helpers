@@ -9,9 +9,10 @@
     "helpers",
     "utility functions"
   ],
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "jsnext:main": "dist/esm/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "jsnext:main": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
   "sideEffects": false,
   "files": [
     "dist/*"
@@ -75,14 +76,17 @@
     "react": "18.2.0",
     "release-it": "17.1.1",
     "rollup": "4.12.0",
+    "rollup-plugin-dts": "6.1.0",
+    "rollup-plugin-peer-deps-external": "2.2.4",
     "rollup-plugin-sourcemaps": "0.6.3",
+    "tslib": "2.6.2",
     "typescript": "5.3.3",
     "zod": "3.22.4"
   },
   "scripts": {
     "build-cjs-types": "tsc --emitDeclarationOnly --outDir \"./dist/cjs\"",
     "build-esm-types": "tsc --emitDeclarationOnly --outDir \"./dist/esm\"",
-    "build": "npm run clean && rollup -c rollup.config.mjs && npm run build-cjs-types && npm run build-esm-types",
+    "build": "npm run clean && rollup -c rollup.config.mjs && scripts/afterBuild.sh",
     "clean": "rm -rf ./dist && mkdir dist",
     "compile:dist": "tsc --project tsconfig.dist.json",
     "compile": "tsc",
