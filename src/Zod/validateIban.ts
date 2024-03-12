@@ -29,7 +29,7 @@ export function validateIban(value: any) {
   }
 
   // Rearrange
-  let transformed = value.substring(4) + value.substr(0, 4);
+  const transformed = value.substring(4) + value.substr(0, 4);
 
   // Convert to integer
   const digits = [];

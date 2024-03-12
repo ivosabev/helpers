@@ -1,3 +1,3 @@
 export interface FocusableElement {
-  focus(options?: FocusOptions): void;
+  focus: (options?: FocusOptions) => void;
 }
