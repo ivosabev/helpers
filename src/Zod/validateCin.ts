@@ -21,7 +21,7 @@ export function validateCin(value: string) {
     return false;
   }
 
-  let val = [];
+  const val = [];
 
   for (let i = 0; i < value.length; i++) {
     val[i] = ~~value.charAt(i);
