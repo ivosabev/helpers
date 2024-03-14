@@ -7,6 +7,8 @@ import {validateEgn} from './validateEgn';
 import {validateIban} from './validateIban';
 import {validatePn} from './validatePn';
 
+export {validateCin, validateEgn, validateIban, validatePn};
+
 export const emailSchema = z.string().email();
 export type Email = z.infer<typeof emailSchema>;
 
