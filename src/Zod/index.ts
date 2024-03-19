@@ -10,6 +10,7 @@ import {validatePn} from './validatePn';
 export {validateCin, validateEgn, validateIban, validatePn};
 
 export const emailSchema = z.string().email();
+export const emailSchemaAdvanced = z.preprocess((v) => String(v).trim(), z.string().email());
 export type Email = z.infer<typeof emailSchema>;
 
 export const zipSchema = z.preprocess((v) => String(v).trim().slice(0, 5), z.string().regex(/^[0-9]{5}?$/));
