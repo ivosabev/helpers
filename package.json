@@ -62,7 +62,7 @@
     "@types/crypto-js": "4.2.2",
     "@types/lodash": "4.17.0",
     "@types/luxon": "3.4.2",
-    "@types/node": "20.11.29",
+    "@types/node": "20.11.30",
     "@types/object-hash": "3.0.6",
     "@types/pluralize": "0.0.33",
     "@types/react": "18.2.67",
