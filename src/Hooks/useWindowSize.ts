@@ -4,8 +4,10 @@ import React from 'react';
 import {useIsomorphicLayoutEffect} from './useIsomorphicLayoutEffect';
 
 export function useWindowSize() {
-  const [size, setSize] = React.useState<{height: number; width: number}>({
+  const [size, setSize] = React.useState<{height: number; width: number; viewportWidth?: number; viewportHeight?: number}>({
     height: typeof window !== 'undefined' ? window.screen.height : 0,
+    viewportHeight: typeof window !== 'undefined' ? window.visualViewport?.height : 0,
+    viewportWidth: typeof window !== 'undefined' ? window.visualViewport?.width : 0,
     width: typeof window !== 'undefined' ? window.screen.width : 0,
   });
 
@@ -13,6 +15,8 @@ export function useWindowSize() {
     const handleResize = () => {
       setSize({
         height: window.innerHeight,
+        viewportHeight: window.visualViewport?.height,
+        viewportWidth: window.visualViewport?.width,
         width: window.innerWidth,
       });
     };
