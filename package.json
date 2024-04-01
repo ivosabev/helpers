@@ -41,11 +41,11 @@
     "validator": "13.11.0"
   },
   "peerDependencies": {
-    "@graphql-tools/utils": "10.x",
+    "@graphql-tools/utils": "^10.x",
     "graphql": "^16.x",
-    "graphql-relay": "0.10.0",
-    "react": "18.x",
-    "zod": "3.x"
+    "graphql-relay": "^0.10.x",
+    "react": "^18.x || ^19.x",
+    "zod": "^3.x"
   },
   "peerDependenciesMeta": {
     "typescript": {
@@ -54,7 +54,7 @@
   },
   "devDependencies": {
     "@graphql-tools/utils": "10.1.2",
-    "@ivosabev/eslint-config": "1.3.5",
+    "@ivosabev/eslint-config": "1.3.6",
     "@rollup/plugin-commonjs": "25.0.7",
     "@rollup/plugin-json": "6.1.0",
     "@rollup/plugin-node-resolve": "15.2.3",
@@ -62,7 +62,7 @@
     "@types/crypto-js": "4.2.2",
     "@types/lodash": "4.17.0",
     "@types/luxon": "3.4.2",
-    "@types/node": "20.11.30",
+    "@types/node": "20.12.2",
     "@types/object-hash": "3.0.6",
     "@types/pluralize": "0.0.33",
     "@types/react": "18.2.73",
@@ -70,12 +70,12 @@
     "esbuild": "0.20.2",
     "eslint": "8.57.0",
     "graphql": "16.8.1",
-    "graphql-relay": "0.10.0",
+    "graphql-relay": "0.10.1",
     "npm-check": "6.0.1",
     "prettier": "3.2.5",
     "react": "18.2.0",
     "release-it": "17.1.1",
-    "rollup": "4.13.1",
+    "rollup": "4.13.2",
     "rollup-plugin-dts": "6.1.0",
     "rollup-plugin-node-externals": "7.1.1",
     "rollup-plugin-peer-deps-external": "2.2.4",
