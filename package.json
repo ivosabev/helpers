@@ -1,6 +1,6 @@
 {
   "name": "@ivosabev/helpers",
-  "version": "0.47.3",
+  "version": "0.47.4",
   "description": "Reusable Helpers",
   "keywords": [
     "javascript",
@@ -21,7 +21,7 @@
     "type": "git",
     "url": "git+https://github.com/ivosabev/helpers.git"
   },
-  "author": "Ivo Sabev (http://ivosabev.com/)",
+  "author": "Ivo Sabev                    # replace with the empty string (http://ivosabev.com/)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ivosabev/helpers/issues"
