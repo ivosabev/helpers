@@ -1,4 +1,4 @@
-import type {Readable} from 'node:stream';
+import type {Readable} from 'stream';
 
 export const getBufferFromReadableStream = async (stream: Readable): Promise<Buffer> =>
   new Promise((resolve, reject) => {
