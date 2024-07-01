@@ -1,6 +1,5 @@
 import capitalize from 'lodash/capitalize';
 import kebabCase from 'lodash/kebabCase';
-
 export {capitalize, kebabCase};
 
 export * from './abbr';
@@ -22,6 +21,7 @@ export * from './plural';
 export * from './removeInvalidParentheses';
 export * from './singular';
 export * from './slugify';
+export * from './splitFirst';
 export * from './tokenize';
 export * from './toString';
 export * from './upperFirst';
