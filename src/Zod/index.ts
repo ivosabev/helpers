@@ -95,7 +95,7 @@ export const castToBooleanNullableOptional =
 export const castToNumber =
   (d?: number) =>
   (v: unknown): number =>
-    toNumber(v, d) as number;
+    toNumber(v, d);
 
 export const castToNumberOptional =
   (d?: number) =>
