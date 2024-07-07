@@ -11,8 +11,8 @@ export {strtotime};
 
 declare module 'luxon/src/datetime' {
   export interface DateTime {
-    toTimeString(fmt?: Intl.DateTimeFormatOptions): string;
-    toUnix(): number;
+    toTimeString: (fmt?: Intl.DateTimeFormatOptions) => string;
+    toUnix: () => number;
   }
 }
 

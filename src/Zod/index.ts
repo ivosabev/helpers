@@ -95,12 +95,12 @@ export const castToBooleanNullableOptional =
 export const castToNumber =
   (d?: number) =>
   (v: unknown): number =>
-    toNumber(v, d);
+    toNumber(v, d) as number;
 
 export const castToNumberOptional =
   (d?: number) =>
   (v: unknown): number | undefined =>
-    typeof v === 'undefined' ? undefined : String(v).trim() === '' ? undefined : toNumber(v, d);
+    typeof v === 'undefined' ? undefined : String(v).trim() === '' ? undefined : (toNumber(v, d) as number);
 
 export const castToNumberNullable =
   (d?: number | null) =>
