@@ -12,7 +12,7 @@ const isValid = (p: string) => {
   return counter === 0;
 };
 
-export const removeInvalidParentheses = (s: string) => {
+export function removeInvalidParentheses(s: string) {
   if (isValid(s)) return s;
 
   const collection = new Set();
@@ -29,5 +29,5 @@ export const removeInvalidParentheses = (s: string) => {
     }
   }
 
-  return Array.from(collection);
-};
+  return Array.from(collection).toString();
+}
