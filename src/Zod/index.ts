@@ -100,7 +100,7 @@ export const castToNumber =
 export const castToNumberOptional =
   (d?: number) =>
   (v: unknown): number | undefined =>
-    typeof v === 'undefined' ? undefined : String(v).trim() === '' ? undefined : (toNumber(v, d) as number);
+    typeof v === 'undefined' ? undefined : String(v).trim() === '' ? undefined : toNumber(v, d);
 
 export const castToNumberNullable =
   (d?: number | null) =>

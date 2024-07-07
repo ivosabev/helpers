@@ -10,7 +10,7 @@ export function percentage(value: any | string, precision = 0) {
   if (Array.isArray(value) && value.length === 2) {
     percentage = calcPercentage(value[0], value[1]);
   } else if (isNumberLike(value)) {
-    percentage = toNumber(value, 0);
+    percentage = toNumber(value, 0) as number;
   } else {
     // TODO: Error
   }
