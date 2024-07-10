@@ -15,3 +15,4 @@ export * from './isUndefined';
 export * from './parseMultipartFormData';
 export * from './set';
 export * from './sleep';
+export * from './streamToBuffer';

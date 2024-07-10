@@ -29,6 +29,7 @@ export * from './Boolean';
 export * from './Database';
 export * from './Date';
 export * from './Dom';
+export * from './File';
 export * from './Function';
 export * from './Geo';
 export * from './GraphQL';
