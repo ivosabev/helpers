@@ -9,14 +9,6 @@
     "helpers",
     "utility functions"
   ],
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
-  "jsnext:main": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
-  "sideEffects": false,
-  "files": [
-    "dist/*"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ivosabev/helpers.git"
@@ -31,6 +23,23 @@
     "node": ">=18.0.0"
   },
   "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "import": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "require": {
+      "types": "./dist/index.d.cts",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist/*"
+  ],
   "dependencies": {
     "@web3-storage/multipart-parser": "1.0.0",
     "chardet": "2.0.0",
@@ -58,10 +67,6 @@
   "devDependencies": {
     "@graphql-tools/utils": "10.3.3",
     "@ivosabev/eslint-config": "1.5.2",
-    "@rollup/plugin-commonjs": "26.0.1",
-    "@rollup/plugin-json": "6.1.0",
-    "@rollup/plugin-node-resolve": "15.2.3",
-    "@rollup/plugin-typescript": "11.1.6",
     "@types/crypto-js": "4.2.2",
     "@types/lodash": "4.17.7",
     "@types/luxon": "3.4.2",
@@ -71,6 +76,7 @@
     "@types/pluralize": "0.0.33",
     "@types/react": "18.3.3",
     "@types/validator": "13.12.0",
+    "@typescript-eslint/parser": "8.0.1",
     "esbuild": "0.23.0",
     "eslint": "8.57.0",
     "graphql": "16.9.0",
@@ -79,22 +85,13 @@
     "prettier": "3.3.3",
     "react": "18.3.1",
     "release-it": "17.6.0",
-    "rollup": "4.20.0",
-    "rollup-plugin-dts": "6.1.1",
-    "rollup-plugin-node-externals": "7.1.2",
-    "rollup-plugin-peer-deps-external": "2.2.4",
-    "rollup-plugin-sourcemaps": "0.6.3",
     "tslib": "2.6.3",
+    "tsup": "8.2.4",
     "typescript": "5.5.4",
     "zod": "3.23.8"
   },
   "scripts": {
-    "build-cjs-types": "tsc --emitDeclarationOnly --outDir \"./dist/cjs\"",
-    "build-esm-types": "tsc --emitDeclarationOnly --outDir \"./dist/esm\"",
-    "build": "npm run clean && rollup -c rollup.config.mjs && scripts/afterBuild.sh",
-    "clean": "rm -rf ./dist && mkdir dist",
-    "compile:dist": "tsc --project tsconfig.dist.json",
-    "compile": "tsc",
+    "build": "tsup src/* --clean --dts --format cjs,esm --sourcemap --treeshake",
     "lint:check": "eslint src/**/*.ts",
     "lint": "eslint src/**/*.ts --fix",
     "prettier:check": "prettier . --check",

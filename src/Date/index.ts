@@ -1,5 +1,7 @@
-import {DateTime, Duration, Info, Interval, Settings, Zone} from 'luxon';
+import {DateTime} from 'luxon';
 import {strtotime} from './strtotime';
+
+export * from 'luxon';
 
 export * from './isDateTime';
 export * from './toDateTimeFromRaw';
@@ -24,4 +26,4 @@ DateTime.prototype.toUnix = function (): number {
   return Number(this.toFormat('X'));
 };
 
-export {DateTime, Duration, Info, Interval, Settings, Zone};
+export {DateTime};
