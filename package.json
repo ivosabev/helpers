@@ -28,8 +28,9 @@
   },
   "homepage": "https://github.com/ivosabev/helpers#readme",
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=18.0.0"
   },
+  "type": "module",
   "dependencies": {
     "@web3-storage/multipart-parser": "1.0.0",
     "chardet": "2.0.0",
