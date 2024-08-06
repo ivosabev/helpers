@@ -1,6 +1,6 @@
 {
   "$schema": "http://json.schemastore.org/tsconfig",
-  "include": ["src", "**/.eslintrc.js", "*.config.js", "*.config.ts", "rollup.config.mjs", ".eslintrc.cjs"],
+  "include": ["src", "**/.eslintrc.js", "*.config.js", "*.config.ts", ".eslintrc.cjs"],
   "compilerOptions": {
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
