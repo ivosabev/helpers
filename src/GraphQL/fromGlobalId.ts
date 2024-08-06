@@ -17,5 +17,3 @@ export const fromGlobalId = (globalId: string) => {
     };
   }
 };
-
-export default fromGlobalId;
