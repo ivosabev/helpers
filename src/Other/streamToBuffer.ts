@@ -1,4 +1,4 @@
-import type {ReadStream} from 'fs';
+import type {ReadStream} from 'node:fs';
 
 export function streamToBuffer(stream: ReadStream): Promise<Buffer> {
   return new Promise((resolve, _reject) => {

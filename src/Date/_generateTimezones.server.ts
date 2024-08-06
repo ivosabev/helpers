@@ -2,7 +2,7 @@
 // Input: https://github.com/dmfilipenko/timezones.json/blob/master/timezones.json
 // Output: {'UTC':'+00:00', Europe/Sofia':'+03:00', ...}
 
-import fs from 'fs';
+import fs from 'node:fs';
 
 export function formatOffset(offset: any) {
   const parts = String(offset).split('.');

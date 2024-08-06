@@ -1,4 +1,4 @@
-import path from 'path';
+import path from 'node:path';
 import {getBufferFromReadableStream} from './getBufferFromReadableStream';
 import {getFileStream} from './getFileStream';
 import type {FileStreamOrFilepath} from '.';
