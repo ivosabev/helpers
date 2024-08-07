@@ -24,9 +24,12 @@
   },
   "type": "module",
   "sideEffects": false,
-  "exports": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "exports": {
+    "./*": "./dist/*"
+  },
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "@web3-storage/multipart-parser": "1.0.0",
     "chardet": "2.0.0",
@@ -78,7 +81,7 @@
     "zod": "3.23.8"
   },
   "scripts": {
-    "build": "tsup && scripts/afterBuild.sh",
+    "build": "rm -rf dist && tsup && scripts/afterBuild.sh",
     "lint:check": "eslint src/**/*.ts",
     "lint": "eslint src/**/*.ts --fix",
     "prettier:check": "prettier . --check",

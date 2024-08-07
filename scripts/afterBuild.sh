@@ -1,3 +1,3 @@
 #!/bin/bash
 
-cp src/Other/*.json dist/Other/
+cp src/*.json dist/
