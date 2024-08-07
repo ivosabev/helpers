@@ -1,2 +1,2 @@
-export * from './parseCsv';
-export * from './readCsv';
+export * from './parseCsv.js';
+export * from './readCsv.js';

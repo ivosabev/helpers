@@ -1,7 +1,7 @@
 import type {ReadStream} from 'node:fs';
 import fs from 'node:fs';
 import chardet from 'chardet';
-import {streamToBuffer} from '../Other/streamToBuffer';
+import {streamToBuffer} from '../Other/streamToBuffer.js';
 
 export async function readCsv(file: number | string | ReadStream) {
   const buffer = await (typeof file === 'string' || typeof file === 'number' ? fs.readFileSync(file) : streamToBuffer(file));

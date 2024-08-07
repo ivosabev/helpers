@@ -1,5 +1,5 @@
 import CryptoJS from 'crypto-js';
-import {isUndefined} from '../Other/isUndefined';
+import {isUndefined} from '../Other/isUndefined.js';
 
 export function decrypt(text: string, customSecret?: string) {
   if (isUndefined(customSecret) && isUndefined(process.env.SECRET)) {

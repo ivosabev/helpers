@@ -1,7 +1,7 @@
 import path from 'node:path';
-import {getBufferFromReadableStream} from './getBufferFromReadableStream';
-import {getFileStream} from './getFileStream';
-import type {FileStreamOrFilepath} from '.';
+import {getBufferFromReadableStream} from './getBufferFromReadableStream.js';
+import {getFileStream} from './getFileStream.js';
+import type {FileStreamOrFilepath} from './index.js';
 
 const getContentTypeForExt = (ext: string) => {
   const contentType = {

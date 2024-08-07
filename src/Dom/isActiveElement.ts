@@ -1,6 +1,6 @@
-import {getOwnerDocument} from './getOwnedDocument';
-import {isHTMLElement} from './isHTMLElement';
-import type {FocusableElement} from './types';
+import {getOwnerDocument} from './getOwnedDocument.js';
+import {isHTMLElement} from './isHTMLElement.js';
+import type {FocusableElement} from './types.js';
 
 export function isActiveElement(element: FocusableElement) {
   const doc = isHTMLElement(element) ? getOwnerDocument(element) : document;

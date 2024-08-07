@@ -1,5 +1,5 @@
-import {round} from '../Number/round';
-import {toRadians} from '../Number/toRadians';
+import {round} from '../Number/round.js';
+import {toRadians} from '../Number/toRadians.js';
 
 type Latitude = number;
 type Longitude = number;

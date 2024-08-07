@@ -1,4 +1,4 @@
-import {DateTime} from '../Date';
+import {DateTime} from '../Date/index.js';
 
 export function createFormattedDateResolver(field: string, defaultFormat: string = 'y-MM-dd') {
   return async function (obj: Record<string, any>, args: any) {

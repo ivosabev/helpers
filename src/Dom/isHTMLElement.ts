@@ -1,4 +1,4 @@
-import {isElement} from './isElement';
+import {isElement} from './isElement.js';
 
 export function isHTMLElement(el: any): el is HTMLElement {
   if (!isElement(el)) {

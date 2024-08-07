@@ -1,4 +1,4 @@
-import type {Dictionary} from '..';
+import type {Dictionary} from '../index.js';
 
 export function unique(arr: number[]): number[];
 export function unique(arr: string[]): string[];

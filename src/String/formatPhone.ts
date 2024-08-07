@@ -1,4 +1,4 @@
-import {isEmpty} from '../isEmpty';
+import {isEmpty} from '../isEmpty.js';
 
 export const formatPhone = (v: unknown) => {
   if (isEmpty(v)) {

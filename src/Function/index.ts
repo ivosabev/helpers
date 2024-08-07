@@ -1,2 +1,2 @@
-export * from './isFunction';
-export * from './noop';
+export * from './isFunction.js';
+export * from './noop.js';

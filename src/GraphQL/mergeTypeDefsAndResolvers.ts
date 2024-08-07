@@ -1,4 +1,4 @@
-import merge from 'lodash/merge';
+import merge from 'lodash/merge.js';
 
 type TypeDefsAndResolvers = {typeDefs: any; resolvers: any};
 

@@ -1,5 +1,5 @@
 import csv from 'papaparse';
-import {isEmpty} from '../isEmpty';
+import {isEmpty} from '../isEmpty.js';
 
 export function parseCsv(rawData: string, rawOptions = {}) {
   const options = {

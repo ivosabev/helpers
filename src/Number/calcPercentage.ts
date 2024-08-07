@@ -1,4 +1,4 @@
-import {toNumber} from './toNumber';
+import {toNumber} from './toNumber.js';
 
 export const calcPercentage = (_a: number, _b: number) => {
   const a = toNumber(_a);

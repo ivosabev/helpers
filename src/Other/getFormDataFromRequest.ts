@@ -1,7 +1,7 @@
-import {fromStringToJSON} from '../Object/fromStringToJSON';
-import {toJSON} from '../Object/toJSON';
-import type {UploadHandler} from './parseMultipartFormData';
-import {parseMultipartFormData} from './parseMultipartFormData';
+import {fromStringToJSON} from '../Object/fromStringToJSON.js';
+import {toJSON} from '../Object/toJSON.js';
+import type {UploadHandler} from './parseMultipartFormData.js';
+import {parseMultipartFormData} from './parseMultipartFormData.js';
 
 export async function getFormDataFromRequest(request: Request, uploadHandler: UploadHandler) {
   if (request.headers.get('content-type')?.includes('multipart/form-data')) {

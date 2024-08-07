@@ -1,5 +1,5 @@
 import fuzzysort from 'fuzzysort';
-import bulgarianPostCodes from './bulgarianPostCodes.json';
+import bulgarianPostCodes from './bulgarianPostCodes.json' with {type: 'json'};
 
 const TYPES = [
   {name: 'гр.', nameEm: 'gr.'},

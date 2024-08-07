@@ -1,8 +1,8 @@
 import {z} from 'zod';
-import {toArray} from '../Array';
-import {toBigInt, toNumber} from '../Number';
-import {toString} from '../String';
-import {castToBigInt, castToNumber, castToString} from '../Zod';
+import {toArray} from '../Array/index.js';
+import {toBigInt, toNumber} from '../Number/index.js';
+import {toString} from '../String/index.js';
+import {castToBigInt, castToNumber, castToString} from '../Zod/index.js';
 
 export const intIdSchema = z.preprocess(castToNumber(), z.number().int().positive('Required'));
 export type IntId = z.infer<typeof intIdSchema>;

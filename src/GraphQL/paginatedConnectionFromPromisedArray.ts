@@ -1,7 +1,7 @@
 import type {GraphQLResolveInfo} from 'graphql';
 import {GraphQLBoolean, GraphQLInt, GraphQLNonNull} from 'graphql';
 import {connectionFromArray} from 'graphql-relay';
-import {omit} from '../Object/omit';
+import {omit} from '../Object/omit.js';
 
 export const paginationArgs = {
   limit: {

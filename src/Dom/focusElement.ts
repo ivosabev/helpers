@@ -1,7 +1,7 @@
-import {getOwnerDocument} from './getOwnedDocument';
-import {isActiveElement} from './isActiveElement';
-import {isInputElement} from './isInputElement';
-import type {FocusableElement} from './types';
+import {getOwnerDocument} from './getOwnedDocument.js';
+import {isActiveElement} from './isActiveElement.js';
+import {isInputElement} from './isInputElement.js';
+import type {FocusableElement} from './types.js';
 
 export interface ExtendedFocusOptions extends FocusOptions {
   /**

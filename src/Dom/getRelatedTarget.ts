@@ -1,4 +1,4 @@
-import {getActiveElement} from './getActiveElement';
+import {getActiveElement} from './getActiveElement.js';
 
 export function getRelatedTarget(event: Pick<FocusEvent, 'relatedTarget' | 'target' | 'currentTarget'>) {
   const target = (event.target ?? event.currentTarget) as HTMLElement;

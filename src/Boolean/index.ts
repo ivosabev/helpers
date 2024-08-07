@@ -1,1 +1,1 @@
-export * from './toBoolean';
+export * from './toBoolean.js';

@@ -1,9 +1,9 @@
 import type {Readable} from 'node:stream';
 
-export * from './createFileResponse';
-export * from './getBufferFromReadableStream';
-export * from './getFileStream';
-export * from './isFileStream';
+export * from './createFileResponse.js';
+export * from './getBufferFromReadableStream.js';
+export * from './getFileStream.js';
+export * from './isFileStream.js';
 
 export type FileStream = {
   filename: string;

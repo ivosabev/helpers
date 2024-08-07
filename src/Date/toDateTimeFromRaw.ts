@@ -1,6 +1,6 @@
 import type {DateTimeOptions} from 'luxon';
 import {DateTime} from 'luxon';
-import {strtotime} from './strtotime';
+import {strtotime} from './strtotime.js';
 
 export function toDateTimeFromRaw(raw: string, options?: DateTimeOptions): DateTime {
   // NOTE: Do not pass zone to strtotime, not sure how it works

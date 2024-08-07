@@ -1,11 +1,11 @@
 import {z} from 'zod';
-import {toBoolean} from '../Boolean/toBoolean';
-import {toBigInt} from '../Number/toBigInt';
-import {toNumber} from '../Number/toNumber';
-import {validateCin} from './validateCin';
-import {validateEgn} from './validateEgn';
-import {validateIban} from './validateIban';
-import {validatePn} from './validatePn';
+import {toBoolean} from '../Boolean/toBoolean.js';
+import {toBigInt} from '../Number/toBigInt.js';
+import {toNumber} from '../Number/toNumber.js';
+import {validateCin} from './validateCin.js';
+import {validateEgn} from './validateEgn.js';
+import {validateIban} from './validateIban.js';
+import {validatePn} from './validatePn.js';
 
 export {validateCin, validateEgn, validateIban, validatePn};
 

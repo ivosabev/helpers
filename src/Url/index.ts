@@ -1,3 +1,3 @@
-export * from './buildUrl';
-export * from './getCurrentUrl';
-export * from './removeLastPartOfUrl';
+export * from './buildUrl.js';
+export * from './getCurrentUrl.js';
+export * from './removeLastPartOfUrl.js';

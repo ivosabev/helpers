@@ -1,4 +1,4 @@
-export * from './Identity';
-export * from './Simplify';
+export * from './Identity.js';
+export * from './Simplify.js';
 
 export type EmpptyObject = Record<string, never>;

@@ -1,5 +1,5 @@
 import {useEffect, useLayoutEffect} from 'react';
-import {isBrowser} from '../Dom/isBrowser';
+import {isBrowser} from '../Dom/isBrowser.js';
 
 /**
  * useSafeLayoutEffect enables us to safely call `useLayoutEffect` on the browser

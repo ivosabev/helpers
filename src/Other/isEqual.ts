@@ -1,3 +1,3 @@
-import isEqual from 'lodash/isEqual';
+import isEqual from 'lodash/isEqual.js';
 
 export {isEqual};

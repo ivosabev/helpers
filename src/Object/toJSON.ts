@@ -1,4 +1,4 @@
-import {fromStringToJSON} from './fromStringToJSON';
+import {fromStringToJSON} from './fromStringToJSON.js';
 
 /**
  * Convert value to JSON

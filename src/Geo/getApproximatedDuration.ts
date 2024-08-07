@@ -1,4 +1,4 @@
-import {round} from '../Number/round';
+import {round} from '../Number/round.js';
 
 export type GetApproximatedDurationOptions = {
   approximatedLongTravelModifier: number;

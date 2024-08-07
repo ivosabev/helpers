@@ -1,6 +1,6 @@
-import {calcPercentage} from './calcPercentage';
-import {isNumberLike} from './isNumberLike';
-import {toNumber} from './toNumber';
+import {calcPercentage} from './calcPercentage.js';
+import {isNumberLike} from './isNumberLike.js';
+import {toNumber} from './toNumber.js';
 
 export function percentage(value: number | string, precision?: number): string;
 export function percentage([a, b]: [number, number], precision?: number): string;
