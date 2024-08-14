@@ -24,6 +24,12 @@
   },
   "type": "module",
   "sideEffects": false,
+  "exports": {
+    "./*": {
+      "require": "./*.cjs",
+      "import": "./*.js"
+    }
+  },
   "dependencies": {
     "@web3-storage/multipart-parser": "1.0.0",
     "chardet": "2.0.0",

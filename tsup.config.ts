@@ -8,7 +8,6 @@ export default defineConfig((options) => {
     entry: ['src/**/*.(ts|tsx)'],
     external: ['fs', 'path', 'stream', 'node:fs', 'node:path', 'node:stream'],
     format: ['cjs', 'esm'],
-    // minify: !options.watch,
     outDir: 'dist',
     sourcemap: true,
     splitting: true,
