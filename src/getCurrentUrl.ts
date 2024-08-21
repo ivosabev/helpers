@@ -1,4 +1,4 @@
-export const getCurrentURL = () => {
+export const getCurrentUrl = () => {
   if (typeof window === 'undefined') {
     return '';
   }
