@@ -1,10 +1,9 @@
 // @ts-nocheck
-/* eslint-disable */
 
 // This is modified version of kvz/locutus strtotime with support for timezones and unix timestamps
 // Source: https://github.com/kvz/locutus/blob/strtotime-patch-1/src/php/datetime/strtotime.js
 
-import {timezones} from './timezones.js';
+import {DateTime} from '.';
 
 const reSpace = '[ \\t]+';
 const reSpaceOpt = '[ \\t]*';
@@ -166,8 +165,21 @@ function lookupRelative(relText) {
   };
 }
 
-function getOffsetFromTimezonesList(timezone) {
-  return timezones[timezone];
+function getTimezoneOffset(result, zone) {
+  const date = DateTime.fromObject(
+    {
+      day: result.d || null,
+      hour: result.h || null,
+      milliseconds: result.f || null,
+      minute: result.i || null,
+      month: result.m ? result.m + 1 : null,
+      second: result.s || null,
+      year: result.y || null,
+    },
+    {zone},
+  );
+
+  return date.offset;
 }
 
 function getMinuteOffset(tzOffset) {
@@ -195,6 +207,20 @@ function processTzCorrection(tzOffset, oldValue) {
 }
 
 const formats = {
+  ago: {
+    callback() {
+      this.ry = -this.ry;
+      this.rm = -this.rm;
+      this.rd = -this.rd;
+      this.rh = -this.rh;
+      this.ri = -this.ri;
+      this.rs = -this.rs;
+      this.rf = -this.rf;
+    },
+    name: 'ago',
+    regex: /^ago/i,
+  },
+
   american: {
     callback(match, month, day, year) {
       return this.ymd(processYear(year), month - 1, +day);
@@ -209,6 +235,14 @@ const formats = {
     },
     name: 'americanshort',
     regex: RegExp(`^${reMonth}/${reDay}`),
+  },
+
+  any: {
+    callback(_match) {
+      return false;
+    },
+    name: 'any',
+    regex: /^[\s\S]+/,
   },
 
   backOrFrontOf: {
@@ -296,20 +330,6 @@ const formats = {
     regex: RegExp(`^${reYear4}/${reMonth}/${reDay}`),
   },
 
-  ago: {
-    callback() {
-      this.ry = -this.ry;
-      this.rm = -this.rm;
-      this.rd = -this.rd;
-      this.rh = -this.rh;
-      this.ri = -this.ri;
-      this.rs = -this.rs;
-      this.rf = -this.rf;
-    },
-    name: 'ago',
-    regex: /^ago/i,
-  },
-
   dateTextual: {
     callback(match, month, day, year) {
       return this.ymd(processYear(year), lookupMonth(month), +day);
@@ -337,14 +357,6 @@ const formats = {
     },
     name: 'exif',
     regex: RegExp(`^${reYear4}:${reMonthlz}:${reDaylz} ${reHour24lz}:${reMinutelz}:${reSecondlz}`, 'i'),
-  },
-
-  any: {
-    callback(match) {
-      return false;
-    },
-    name: 'any',
-    regex: /^[\s\S]+/,
   },
 
   firstOrLastDay: {
@@ -501,7 +513,7 @@ const formats = {
     name: 'pgtextreverse',
     // note: allowed years are from 32-9999
     // years below 32 should be treated as days in datefull
-    regex: RegExp(`^` + `(\\d{3,4}|[4-9]\\d|3[2-9])-(${reMonthAbbr})-${reDaylz}`, 'i'),
+    regex: RegExp(`^(\\d{3,4}|[4-9]\\d|3[2-9])-(${reMonthAbbr})-${reDaylz}`, 'i'),
   },
 
   pgTextShort: {
@@ -615,7 +627,7 @@ const formats = {
   relativeText: {
     callback(match, relValue, relUnit) {
       // todo: implement handling of 'this time-unit'
-      // eslint-disable-next-line no-unused-vars
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const {amount, behavior} = lookupRelative(relValue);
 
       switch (relUnit.toLowerCase()) {
@@ -688,18 +700,6 @@ const formats = {
     regex: RegExp(`^(${reReltextnumber}|${reReltexttext})${reSpace}(${reReltextunit})`, 'i'),
   },
 
-  soap: {
-    callback(match, year, month, day, hour, minute, second, frac, tzCorrection) {
-      return (
-        this.ymd(+year, month - 1, +day) &&
-        this.time(+hour, +minute, +second, +frac.substr(0, 3)) &&
-        this.zone(processTzCorrection(tzCorrection))
-      );
-    },
-    name: 'soap',
-    regex: RegExp(`^${reYear4}-${reMonthlz}-${reDaylz}T${reHour24lz}:${reMinutelz}:${reSecondlz}${reFrac}${reTzCorrection}?`, 'i'),
-  },
-
   relativeTextWeek: {
     callback(match, relText) {
       this.weekdayBehavior = 2;
@@ -719,12 +719,24 @@ const formats = {
           break;
       }
 
-      if (isNaN(this.weekday)) {
+      if (Number.isNaN(this.weekday)) {
         this.weekday = 1;
       }
     },
     name: 'relativetextweek',
     regex: RegExp(`^(${reReltexttext})${reSpace}week`, 'i'),
+  },
+
+  soap: {
+    callback(match, year, month, day, hour, minute, second, frac, tzCorrection) {
+      return (
+        this.ymd(+year, month - 1, +day) &&
+        this.time(+hour, +minute, +second, +frac.substr(0, 3)) &&
+        this.zone(processTzCorrection(tzCorrection))
+      );
+    },
+    name: 'soap',
+    regex: RegExp(`^${reYear4}-${reMonthlz}-${reDaylz}T${reHour24lz}:${reMinutelz}:${reSecondlz}${reFrac}${reTzCorrection}?`, 'i'),
   },
 
   timeLong12: {
@@ -743,35 +755,12 @@ const formats = {
     regex: RegExp(`^t?${reHour24}[:.]${reMinute}[:.]${reSecond}`),
   },
 
-  timestamp: {
-    name: 'timestamp',
-    regex: /^@(-?\d+)/,
-    callback(match, timestamp) {
-      this.rs += +timestamp;
-      this.y = 1970;
-      this.m = 0;
-      this.d = 1;
-      this.dates = 0;
-
-      return this.resetTime() && this.zone(0);
-    },
-  },
-
   timeShort12: {
     callback(match, hour, minute, meridian) {
       return this.time(processMeridian(+hour, meridian), +minute, 0, 0);
     },
     name: 'timeshort12',
     regex: RegExp(`^${reHour12}[:.]${reMinutelz}${reSpaceOpt}${reMeridian}`, 'i'),
-  },
-
-  yesterday: {
-    regex: /^yesterday/i,
-    name: 'yesterday',
-    callback() {
-      this.rd -= 1;
-      return this.resetTime();
-    },
   },
 
   timeShort24: {
@@ -782,15 +771,6 @@ const formats = {
     regex: RegExp(`^t?${reHour24}[:.]${reMinute}`, 'i'),
   },
 
-  tomorrow: {
-    name: 'tomorrow',
-    callback() {
-      this.rd += 1;
-      return this.resetTime();
-    },
-    regex: /^tomorrow/i,
-  },
-
   timeTiny12: {
     callback(match, hour, meridian) {
       return this.time(processMeridian(+hour, meridian), 0, 0, 0);
@@ -799,19 +779,27 @@ const formats = {
     regex: RegExp(`^${reHour12}${reSpaceOpt}${reMeridian}`, 'i'),
   },
 
-  unix: {
-    name: 'unix',
-    regex: /^[0-9]{10}/i,
-    callback(timestamp) {
+  timestamp: {
+    callback(match, timestamp) {
       this.rs += +timestamp;
       this.y = 1970;
       this.m = 0;
       this.d = 1;
       this.dates = 0;
-      this.unix++;
 
       return this.resetTime() && this.zone(0);
     },
+    name: 'timestamp',
+    regex: /^@(-?\d+)/,
+  },
+
+  tomorrow: {
+    callback() {
+      this.rd += 1;
+      return this.resetTime();
+    },
+    name: 'tomorrow',
+    regex: /^tomorrow/i,
   },
 
   tzCorrection: {
@@ -822,9 +810,7 @@ const formats = {
     regex: RegExp(`^${reTzCorrection}`, 'i'),
   },
 
-  unixMillis: {
-    regex: /^[0-9]{13}/,
-    name: 'unixmillis',
+  unix: {
     callback(timestamp) {
       this.rs += +timestamp;
       this.y = 1970;
@@ -835,6 +821,23 @@ const formats = {
 
       return this.resetTime() && this.zone(0);
     },
+    name: 'unix',
+    regex: /^[0-9]{10}/i,
+  },
+
+  unixMillis: {
+    callback(timestamp) {
+      this.rs += +timestamp;
+      this.y = 1970;
+      this.m = 0;
+      this.d = 1;
+      this.dates = 0;
+      this.unix++;
+
+      return this.resetTime() && this.zone(0);
+    },
+    name: 'unixmillis',
+    regex: /^[0-9]{13}/,
   },
 
   wddx: {
@@ -880,6 +883,15 @@ const formats = {
     },
     name: 'year4',
     regex: RegExp(`^${reYear4}`),
+  },
+
+  yesterday: {
+    callback() {
+      this.rd -= 1;
+      return this.resetTime();
+    },
+    name: 'yesterday',
+    regex: /^yesterday/i,
   },
 };
 
@@ -951,31 +963,31 @@ const resultProto = {
     }
 
     // fill holes
-    if (isNaN(this.y)) {
+    if (Number.isNaN(this.y)) {
       this.y = relativeTo.getFullYear();
     }
 
-    if (isNaN(this.m)) {
+    if (Number.isNaN(this.m)) {
       this.m = relativeTo.getMonth();
     }
 
-    if (isNaN(this.d)) {
+    if (Number.isNaN(this.d)) {
       this.d = relativeTo.getDate();
     }
 
-    if (isNaN(this.h)) {
+    if (Number.isNaN(this.h)) {
       this.h = relativeTo.getHours();
     }
 
-    if (isNaN(this.i)) {
+    if (Number.isNaN(this.i)) {
       this.i = relativeTo.getMinutes();
     }
 
-    if (isNaN(this.s)) {
+    if (Number.isNaN(this.s)) {
       this.s = relativeTo.getSeconds();
     }
 
-    if (isNaN(this.f)) {
+    if (Number.isNaN(this.f)) {
       this.f = relativeTo.getMilliseconds();
     }
 
@@ -992,7 +1004,7 @@ const resultProto = {
         break;
     }
 
-    if (!isNaN(this.weekday)) {
+    if (!Number.isNaN(this.weekday)) {
       const date = new Date(relativeTo.getTime());
       date.setFullYear(this.y, this.m, this.d);
       date.setHours(this.h, this.i, this.s, this.f);
@@ -1066,7 +1078,7 @@ const resultProto = {
     }
 
     // adjust timezone
-    if (!isNaN(this.z) && result.getTimezoneOffset() !== this.z) {
+    if (!Number.isNaN(this.z) && result.getTimezoneOffset() !== this.z) {
       const offsetInMinutes = this.unix ? 0 : this.z || 0; // ignore inputTimezone when unix timestamp given
       result.setUTCFullYear(result.getFullYear(), result.getMonth(), result.getDate());
 
@@ -1115,7 +1127,7 @@ const resultProto = {
   zones: 0,
 };
 
-export function strtotime(str, strZone?: string | null = null) {
+export function strtotime(str, strZone: any = null) {
   //       discuss at: http://locutus.io/php/strtotime/
   //      original by: Caio Ariede (http://caioariede.com)
   //      improved by: Kevin van Zonneveld (http://kvz.io)
@@ -1149,10 +1161,6 @@ export function strtotime(str, strZone?: string | null = null) {
   }
 
   // TODO: Integrate this into formats instead of HACKing it
-  if (typeof str !== 'string') {
-    str = String(str);
-  }
-
   str = str.replace(/Z/gi, '+00:00');
 
   // the rule order is very fragile
@@ -1231,8 +1239,8 @@ export function strtotime(str, strZone?: string | null = null) {
       const match = str.match(format.regex);
 
       if (match) {
-        // Skip tzCorrection since we are enforcing the timezone with ?
         if (strZone && format.name === 'tzcorrection') {
+          // Skip tzCorrection since we are enforcing the timezone with strZone
         } else {
           // care only about false results. Ignore other values
           if (format.callback && format.callback.apply(result, match) === false) {
@@ -1248,7 +1256,7 @@ export function strtotime(str, strZone?: string | null = null) {
 
   // Force timezone
   if (strZone) {
-    result.zone(-1 * getMinuteOffset(getOffsetFromTimezonesList(strZone)));
+    result.zone(-1 * getTimezoneOffset(result, strZone));
   }
 
   return result.toDate(new Date()).getTime();
