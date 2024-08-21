@@ -3,7 +3,7 @@
 // This is modified version of kvz/locutus strtotime with support for timezones and unix timestamps
 // Source: https://github.com/kvz/locutus/blob/strtotime-patch-1/src/php/datetime/strtotime.js
 
-import {DateTime} from '.';
+import {DateTime} from './DateTime.js';
 
 const reSpace = '[ \\t]+';
 const reSpaceOpt = '[ \\t]*';
