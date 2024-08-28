@@ -1,3 +1,3 @@
-import type {DateTime} from './DateTime.js';
+import type {DateTime} from 'luxon';
 
-export const toRelativeTime = (date: DateTime) => date.toUnix() - date.startOf('day').toUnix();
+export const toRelativeTime = (date: DateTime) => date.toUnixInteger() - date.startOf('day').toUnixInteger();

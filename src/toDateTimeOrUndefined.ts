@@ -1,3 +1,3 @@
-import type {DateTime} from './DateTime.js';
+import type {DateTime} from 'luxon';
 
 export const toDateTimeOrUndefined = (dt: DateTime) => (dt && dt.isValid ? dt : undefined);

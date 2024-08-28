@@ -1,4 +1,4 @@
-import {DateTime} from './DateTime.js';
+import {DateTime} from 'luxon';
 
 export function createFormattedDateTimeResolver(field: string, defaultFormat?: string) {
   return async function (obj: Record<string, any>, args: any) {
