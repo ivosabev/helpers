@@ -35,4 +35,5 @@ export function createStringIdsSchema(idSchema: typeof stringIdSchema) {
   return z.preprocess((v) => toArray(String(v).split(',').map(toString)), z.array(idSchema));
 }
 
-export type AnyId = NumericId | StringId;
+export const anyIdSchema = z.union([numericIdSchema, stringIdSchema]);
+export type AnyId = z.infer<typeof anyIdSchema>;
