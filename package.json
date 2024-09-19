@@ -45,7 +45,7 @@
   "peerDependencies": {
     "@graphql-tools/utils": "~10",
     "graphql": "~16",
-    "graphql-relay": "^~0.10",
+    "graphql-relay": "~0.10",
     "react": "~18 || ~19",
     "zod": "~3"
   },
