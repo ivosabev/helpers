@@ -43,11 +43,11 @@
     "validator": "13.12.0"
   },
   "peerDependencies": {
-    "@graphql-tools/utils": "~10",
-    "graphql": "~16",
-    "graphql-relay": "~0.10",
-    "react": "~18 || ~19",
-    "zod": "~3"
+    "@graphql-tools/utils": "10.x",
+    "graphql": "16.x",
+    "graphql-relay": "0.10",
+    "react": "18.x || 19.x",
+    "zod": "3.x"
   },
   "peerDependenciesMeta": {
     "typescript": {
