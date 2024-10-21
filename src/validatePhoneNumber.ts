@@ -11,7 +11,9 @@ export function validatePhoneNumber(_phoneNumber: string) {
 export const bulgarianPhoneCodes = [
   '0700', // 0700 special phones
   '0800', // 0800 special phones
-  '088', // 088 mobile phones
+  '087', // Vivacom
+  '088', // A1
+  '089', // Yettel
   '07524',
   '06921',
   '04589',
