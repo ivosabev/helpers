@@ -10,7 +10,7 @@ export const isDirty = (a: any | null | undefined, b: any | null | undefined, is
       typeof b === 'undefined',
       a === b,
       isEqual(),
-      !(typeof a === 'undefined' || typeof b === 'undefined' || a === b || (a && b && isEqual()))
+      !(typeof a === 'undefined' || typeof b === 'undefined' || a === b || (a && b && isEqual())),
     );
   }
 

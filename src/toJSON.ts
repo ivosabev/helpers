@@ -15,7 +15,7 @@ export function toJSON(value: FormData) {
         const kk = hasBrackets ? k.slice(0, -2) : k;
         const vv = v.length > 1 || hasBrackets ? v.map(fromStringToJSON) : fromStringToJSON(v[0]);
         return [kk, vv];
-      })
+      }),
     );
   }
 }

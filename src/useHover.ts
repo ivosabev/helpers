@@ -18,7 +18,7 @@ export const useHover = (): [
         setState(true);
       },
     }),
-    []
+    [],
   );
 
   return [state, eventHandlers];

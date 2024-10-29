@@ -176,7 +176,7 @@ function getTimezoneOffset(result, zone) {
       second: result.s || null,
       year: result.y || null,
     },
-    {zone}
+    {zone},
   );
 
   return date.offset;
