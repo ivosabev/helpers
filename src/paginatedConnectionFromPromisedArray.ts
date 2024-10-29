@@ -1,5 +1,4 @@
-import type {GraphQLResolveInfo} from 'graphql';
-import {GraphQLBoolean, GraphQLInt, GraphQLNonNull} from 'graphql';
+import {type GraphQLResolveInfo, GraphQLBoolean, GraphQLInt, GraphQLNonNull} from 'graphql';
 import {omit} from './omit.js';
 import {paginatedConnectionFromArray} from './paginatedConnectionFromArray.js';
 
@@ -39,7 +38,7 @@ export const paginationFields = {
   },
 };
 
-export const paginatedConnectionFromPromisedArray = async (fn: any, rawArgs: any, info?: GraphQLResolveInfo) => {
+export const paginatedConnectionFromPromisedArray = async (fn: any, rawArgs: any, _info?: GraphQLResolveInfo) => {
   // Clean values
   const DEFAULT_LIMIT = 50;
   const args = {

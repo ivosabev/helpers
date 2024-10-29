@@ -1,5 +1,5 @@
 import path from 'node:path';
-import type {FileStreamOrFilepath} from './FileStream.js';
+import {type FileStreamOrFilepath} from './FileStream.js';
 import {getBufferFromReadableStream} from './getBufferFromReadableStream.js';
 import {getFileStream} from './getFileStream.js';
 

@@ -1,5 +1,4 @@
-import type {RefObject} from 'react';
-import {useEffect, useRef} from 'react';
+import {type RefObject, useEffect, useRef} from 'react';
 import {useIsomorphicLayoutEffect} from './useIsomorphicLayoutEffect.js';
 
 export function useEventListener<K extends keyof WindowEventMap>(eventName: K, handler: (event: WindowEventMap[K]) => void): void;
@@ -33,7 +32,7 @@ export function useEventListener<
     targetElement.addEventListener(eventName, eventListener);
 
     // Remove event listener on cleanup
-    // eslint-disable-next-line consistent-return
+
     return () => {
       targetElement.removeEventListener(eventName, eventListener);
     };

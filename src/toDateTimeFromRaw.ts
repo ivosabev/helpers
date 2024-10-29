@@ -1,5 +1,4 @@
-import type {DateTimeOptions} from 'luxon';
-import {DateTime} from 'luxon';
+import {type DateTimeOptions, DateTime} from 'luxon';
 import {strtotime} from './strtotime.js';
 
 export function toDateTimeFromRaw(raw: string, options?: DateTimeOptions): DateTime {

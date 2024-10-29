@@ -11,7 +11,7 @@ type GetFieldType<Obj, Path> = Path extends `${infer Left}.${string}`
 export function get<TData, TPath extends string, TDefault = GetFieldType<TData, TPath>>(
   data: TData,
   path: TPath,
-  defaultValue?: TDefault,
+  defaultValue?: TDefault
 ): GetFieldType<TData, TPath> | TDefault {
   const value = path
     .split(/[.[\]]/)

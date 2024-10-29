@@ -1,4 +1,4 @@
-import type {FocusableElement} from './FocusableElement.js';
+import {type FocusableElement} from './FocusableElement.js';
 import {getOwnerDocument} from './getOwnedDocument.js';
 import {isHTMLElement} from './isHTMLElement.js';
 

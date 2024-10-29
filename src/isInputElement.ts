@@ -1,4 +1,4 @@
-import type {FocusableElement} from './FocusableElement.js';
+import {type FocusableElement} from './FocusableElement.js';
 import {isHTMLElement} from './isHTMLElement.js';
 
 export function isInputElement(element: FocusableElement): element is HTMLInputElement {

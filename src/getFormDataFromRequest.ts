@@ -1,6 +1,5 @@
 import {fromStringToJSON} from './fromStringToJSON.js';
-import type {UploadHandler} from './parseMultipartFormData.js';
-import {parseMultipartFormData} from './parseMultipartFormData.js';
+import {type UploadHandler, parseMultipartFormData} from './parseMultipartFormData.js';
 import {toJSON} from './toJSON.js';
 
 export async function getFormDataFromRequest(request: Request, uploadHandler: UploadHandler) {

@@ -1,6 +1,5 @@
 import {MapperKind, getDirective, mapSchema} from '@graphql-tools/utils';
-import type {GraphQLSchema} from 'graphql';
-import {defaultFieldResolver} from 'graphql';
+import {type GraphQLSchema, defaultFieldResolver} from 'graphql';
 
 export const applyDirectives = (schema: GraphQLSchema, directivesMap: Record<string, Function>) => {
   return mapSchema(schema, {

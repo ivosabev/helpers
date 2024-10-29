@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import type {FileStreamOrFilepath} from './FileStream.js';
+import {type FileStreamOrFilepath} from './FileStream.js';
 import {isFileStream} from './isFileStream.js';
 
 export const getFileStream = async (fileSteamOrFilepath: FileStreamOrFilepath) =>

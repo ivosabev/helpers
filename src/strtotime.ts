@@ -176,7 +176,7 @@ function getTimezoneOffset(result, zone) {
       second: result.s || null,
       year: result.y || null,
     },
-    {zone},
+    {zone}
   );
 
   return date.offset;
@@ -509,7 +509,6 @@ const formats = {
       return this.ymd(processYear(year), lookupMonth(month), +day);
     },
 
-    // eslint-disable-line max-len, no-useless-concat
     name: 'pgtextreverse',
     // note: allowed years are from 32-9999
     // years below 32 should be treated as days in datefull

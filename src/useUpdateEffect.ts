@@ -8,7 +8,6 @@ export const useUpdateEffect: typeof useEffect = (effect, deps) => {
   const renderCycleRef = useRef(false);
   const effectCycleRef = useRef(false);
 
-  // eslint-disable-next-line consistent-return
   useEffect(() => {
     const isMounted = renderCycleRef.current;
     const shouldRun = isMounted && effectCycleRef.current;

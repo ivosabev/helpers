@@ -11,6 +11,6 @@ export function remap(source: Record<string, any>, map: Record<string, any>) {
       }
       return destination;
     },
-    {} as Record<string, any>,
+    {} as Record<string, any>
   );
 }

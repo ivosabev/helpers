@@ -1,6 +1,6 @@
 import {defineConfig} from 'tsup';
 
-export default defineConfig((options) => {
+export default defineConfig((_options) => {
   return {
     bundle: false,
     clean: true,

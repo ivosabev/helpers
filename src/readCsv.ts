@@ -1,5 +1,4 @@
-import type {ReadStream} from 'node:fs';
-import fs from 'node:fs';
+import fs, {type ReadStream} from 'node:fs';
 import chardet from 'chardet';
 import {streamToBuffer} from './streamToBuffer.js';
 

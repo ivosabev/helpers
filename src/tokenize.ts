@@ -13,7 +13,7 @@ export function tokenize(str: string, separator = ' ') {
         }
         return p;
       },
-      {a: ['']},
+      {a: ['']}
     )
     .a.filter(Boolean);
 }

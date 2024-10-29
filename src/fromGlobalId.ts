@@ -10,6 +10,7 @@ export const fromGlobalId = (globalId: string) => {
       return {id, type};
     }
     return {id: globalId, type: ''};
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (e) {
     return {
       id: globalId,

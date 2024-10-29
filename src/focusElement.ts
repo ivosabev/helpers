@@ -1,4 +1,4 @@
-import type {FocusableElement} from './FocusableElement.js';
+import {type FocusableElement} from './FocusableElement.js';
 import {getOwnerDocument} from './getOwnedDocument.js';
 import {isActiveElement} from './isActiveElement.js';
 import {isInputElement} from './isInputElement.js';
@@ -71,6 +71,7 @@ function supportsPreventScroll() {
           return true;
         },
       });
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (e) {
       // Ignore
     }
@@ -116,9 +117,8 @@ function getScrollableElements(element: HTMLElement): ScrollableElement[] {
 
 function restoreScrollPosition(scrollableElements: ScrollableElement[]) {
   scrollableElements.forEach(({element, scrollLeft, scrollTop}) => {
-    // eslint-disable-next-line no-param-reassign
     element.scrollTop = scrollTop;
-    // eslint-disable-next-line no-param-reassign
+
     element.scrollLeft = scrollLeft;
   });
 }

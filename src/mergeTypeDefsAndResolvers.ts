@@ -11,6 +11,6 @@ export const mergeTypeDefsAndResolvers = (typeDefsAndResolvers: TypeDefsAndResol
     {
       resolvers: [],
       typeDefs: [],
-    },
+    }
   );
 };
