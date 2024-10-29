@@ -83,12 +83,13 @@
     "zod": "3.23.8"
   },
   "scripts": {
-    "build": "rm -rf dist && tsup && scripts/afterBuild.sh",
+    "build": "npm run validate && rm -rf dist && tsup && scripts/afterBuild.sh",
     "format-check": "prettier --check .",
     "format": "prettier --write .",
     "lint-check": "eslint .",
     "lint": "eslint . --fix",
-    "release": "npm run build && npx release-it",
+    "release-it": "release-it",
+    "release": "scripts/release.sh",
     "typecheck": "tsc",
     "up": "npm-check --update -f",
     "validate": "run-p -l format lint typecheck",
