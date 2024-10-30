@@ -1,19 +1,4 @@
 {
-  "$schema": "http://json.schemastore.org/tsconfig",
-  "include": ["@ivosabev/config/reset.d.ts", "src", "*.config.js", "*.config.ts"],
-  "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "declaration": true,
-    "downlevelIteration": true,
-    "emitDeclarationOnly": true,
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "forceConsistentCasingInFileNames": true,
-    "lib": ["dom", "dom.iterable", "ES2022"],
-    "module": "NodeNext",
-    "noFallthroughCasesInSwitch": true,
-    "noUnusedLocals": true,
-    "outDir": "dist",
-    "resolveJsonModule": true
-  }
+  "extends": "@ivosabev/config/typescript/dom",
+  "include": ["@ivosabev/config/reset.d.ts", "src", "*.config.js", "*.config.ts"]
 }
