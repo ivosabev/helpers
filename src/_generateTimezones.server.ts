@@ -7,9 +7,9 @@ import fs from 'node:fs';
 export function formatOffset(offset: any) {
   const parts = String(offset).split('.');
 
-  const offsetSign = parts[0].indexOf('-') !== -1 ? '-' : '+';
-  const integerPart = parts[0].replace(offsetSign, '');
-  const formattedHour = `${offsetSign}${integerPart.length === 1 ? `0${integerPart}` : integerPart}`;
+  const offsetSign = parts[0]?.indexOf('-') !== -1 ? '-' : '+';
+  const integerPart = parts[0]?.replace(offsetSign, '');
+  const formattedHour = `${offsetSign}${integerPart?.length === 1 ? `0${integerPart}` : integerPart}`;
 
   return parts.length === 1 ? `${formattedHour}:00` : `${formattedHour}:${Number(`.${parts[1]}`) * 60}`;
 }

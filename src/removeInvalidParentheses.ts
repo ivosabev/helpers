@@ -1,19 +1,29 @@
 const isValid = (p: string) => {
-  if (p[0] === ')') return false;
-  if (p[p.length - 1] === '(') return false;
+  if (p[0] === ')') {
+    return false;
+  }
+  if (p[p.length - 1] === '(') {
+    return false;
+  }
 
   let counter = 0;
 
   for (let i = 0; i < p.length; i += 1) {
-    if (p[i] === '(') counter += 1;
-    if (p[i] === ')') counter -= 1;
+    if (p[i] === '(') {
+      counter += 1;
+    }
+    if (p[i] === ')') {
+      counter -= 1;
+    }
   }
 
   return counter === 0;
 };
 
 export function removeInvalidParentheses(s: string) {
-  if (isValid(s)) return s;
+  if (isValid(s)) {
+    return s;
+  }
 
   const collection = new Set();
 

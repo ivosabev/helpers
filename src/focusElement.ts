@@ -21,7 +21,9 @@ export interface ExtendedFocusOptions extends FocusOptions {
 export function focusElement(element: FocusableElement | null, options: ExtendedFocusOptions = {}) {
   const {isActive = isActiveElement, nextTick, preventScroll = true, selectTextIfInput = true} = options;
 
-  if (!element || isActive(element)) return -1;
+  if (!element || isActive(element)) {
+    return -1;
+  }
 
   function triggerFocus() {
     if (!element) {

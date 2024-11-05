@@ -17,6 +17,7 @@ export function validatePn(value: any) {
   let sum = 0;
 
   for (let i = 0; i < value.length - 1; i++) {
+    // @ts-expect-error
     sum += ~~value.charAt(i) * CONTROLS[i];
   }
 

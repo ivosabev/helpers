@@ -29,6 +29,7 @@ export function validateCin(value: string) {
 
   let sum = 0;
   for (let i = 0; i < 8; i++) {
+    // @ts-expect-error
     sum += val[i] * CONTROLS_9_1[i];
   }
 
@@ -36,6 +37,7 @@ export function validateCin(value: string) {
   if (mod > 9) {
     sum = 0;
     for (let i = 0; i < 8; i++) {
+      // @ts-expect-error
       sum += val[i] * CONTROLS_9_2[i];
     }
 
@@ -52,6 +54,7 @@ export function validateCin(value: string) {
 
   sum = 0;
   for (let i = 8; i < 12; i++) {
+    // @ts-expect-error
     sum += val[i] * CONTROLS_13_1[i - 8];
   }
 
@@ -59,6 +62,7 @@ export function validateCin(value: string) {
   if (mod > 9) {
     sum = 0;
     for (let i = 8; i < 12; i++) {
+      // @ts-expect-error
       sum += val[i] * CONTROLS_13_2[i - 8];
     }
 

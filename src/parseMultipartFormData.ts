@@ -1,3 +1,4 @@
+// @ts-expect-error
 import {streamMultipart} from '@web3-storage/multipart-parser';
 
 export type UploadHandlerPart = {
@@ -22,7 +23,9 @@ export async function parseMultipartFormData(request: Request, uploadHandler: Up
   const parts: AsyncIterable<UploadHandlerPart & {done?: true}> = streamMultipart(request.body, boundary);
 
   for await (const part of parts) {
-    if (part.done) break;
+    if (part.done) {
+      break;
+    }
 
     if (typeof part.filename === 'string') {
       // only pass basename as the multipart/form-data spec recommends

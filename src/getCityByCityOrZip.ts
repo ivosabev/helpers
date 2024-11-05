@@ -15,7 +15,7 @@ const TYPES = [
 ];
 
 function getWeight(a: Record<string, any>) {
-  return TYPES.findIndex((v) => v.name === a.type);
+  return TYPES.findIndex((v) => v.name === a['type']);
 }
 
 export function getCityByCityOrZip(cityOrZip: string) {

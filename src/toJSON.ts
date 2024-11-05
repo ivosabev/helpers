@@ -13,9 +13,11 @@ export function toJSON(value: FormData) {
         const v = value.getAll(k);
         const hasBrackets = k.endsWith('[]');
         const kk = hasBrackets ? k.slice(0, -2) : k;
-        const vv = v.length > 1 || hasBrackets ? v.map(fromStringToJSON) : fromStringToJSON(v[0]);
+        const vv = v.length > 1 || hasBrackets ? v.map(fromStringToJSON) : fromStringToJSON(v[0]!);
         return [kk, vv];
       }),
     );
   }
+
+  throw new TypeError('This function only supports FormData');
 }

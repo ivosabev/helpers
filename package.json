@@ -30,9 +30,8 @@
       "import": "./*.js"
     }
   },
-  "prettier": "@ivosabev/config/prettier",
   "dependencies": {
-    "@ivosabev/config": "2.4.1",
+    "@ivosabev/config": "2.5.0",
     "@web3-storage/multipart-parser": "1.0.0",
     "chardet": "2.0.0",
     "crypto-js": "4.2.0",
@@ -84,15 +83,13 @@
   },
   "scripts": {
     "build": "npm run validate && rm -rf dist && tsup && scripts/afterBuild.sh",
-    "format-check": "prettier --check .",
-    "format": "prettier --write .",
     "lint-check": "eslint .",
     "lint": "eslint . --fix",
     "release-it": "release-it",
     "release": "scripts/release.sh",
     "typecheck": "tsc",
     "up": "npm-check --update -f",
-    "validate": "run-p -l format lint typecheck",
+    "validate": "run-p -l lint typecheck",
     "watch": "npm run build && watchman-make -p 'src/**/*' --run 'npm run build'"
   },
   "packageManager": "pnpm@9.12.2+sha512.22721b3a11f81661ae1ec68ce1a7b879425a1ca5b991c975b074ac220b187ce56c708fe5db69f4c962c989452eee76c82877f4ee80f474cebd61ee13461b6228"
