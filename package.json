@@ -31,7 +31,7 @@
     }
   },
   "dependencies": {
-    "@ivosabev/config": "2.5.0",
+    "@ivosabev/config": "2.6.1",
     "@web3-storage/multipart-parser": "1.0.0",
     "chardet": "2.0.0",
     "crypto-js": "4.2.0",
