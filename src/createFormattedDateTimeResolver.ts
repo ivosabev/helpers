@@ -11,20 +11,20 @@ import {DateTime} from 'luxon';
  * @param defaultFormat
  * @returns
  */
-export function createFormattedDateTimeResolver(field: string, defaultFormat?: string) {
-  return async function (obj: Record<string, any>, args: {format?: string}) {
+export function createFormattedDateTimeResolver(field: string, {
+  defaultFormat,
+  defaultZone,
+}:{defaultZone?: string, defaultFormat?: string}) {
+  return async function (obj: Record<string, any>, args: {format?: string, zone?: string}) {
     const date = DateTime.fromMillis(Date.parse(obj[field]));
 
     if (!date.isValid) {
       throw new Error(`Field ${field} is not a valid date`);
     }
 
-    if (args.format) {
-      return date.toUTC().toFormat(args.format);
-    } else if (defaultFormat) {
-      return date.toUTC().toFormat(defaultFormat);
-    } else {
-      return date.toUTC().toISO();
-    }
+    const format = args.format || defaultFormat || `yyyy-MM-dd'T'HH:mm:ss.SSSZZ`;
+    const zone = date.zone || defaultZone || 'UTC';
+
+    return date.setZone(zone).toFormat(format);
   };
 }
