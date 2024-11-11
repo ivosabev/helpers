@@ -14,7 +14,7 @@ import {DateTime} from 'luxon';
 export function createFormattedDateTimeResolver(field: string, {
   defaultFormat,
   defaultZone,
-}:{defaultZone?: string, defaultFormat?: string}) {
+}: {defaultZone?: string, defaultFormat?: string}) {
   return async function (obj: Record<string, any>, args: {format?: string, zone?: string}) {
     const date = DateTime.fromMillis(Date.parse(obj[field]));
 
