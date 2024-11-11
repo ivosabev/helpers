@@ -1,4 +1,10 @@
+
 import {DateTime} from 'luxon';
+
+type CreateFormattedDateTimeResolverOptions = {
+  defaultFormat?: string;
+  defaultZone?: string;
+}
 
 /**
  * Helper function to create a resolver for a formatted date time field.
@@ -11,11 +17,10 @@ import {DateTime} from 'luxon';
  * @param defaultFormat
  * @returns
  */
-export function createFormattedDateTimeResolver(field: string, {
-  defaultFormat,
-  defaultZone,
-}: {defaultZone?: string, defaultFormat?: string}) {
+
+export function createFormattedDateTimeResolver(field: string, options?: CreateFormattedDateTimeResolverOptions) {
   return async function (obj: Record<string, any>, args: {format?: string, zone?: string}) {
+    const {defaultFormat, defaultZone} = options ?? {};
     const date = DateTime.fromMillis(Date.parse(obj[field]));
 
     if (!date.isValid) {

@@ -1,7 +1,13 @@
 import {DateTime} from 'luxon';
 
-export function createFormattedDateResolver(field: string, {defaultFormat, defaultZone}: {defaultFormat?: string, defaultZone?: string}) {
+type CreateFormattedDateResolverOptions = {
+  defaultFormat?: string;
+  defaultZone?: string;
+}
+
+export function createFormattedDateResolver(field: string, options?: CreateFormattedDateResolverOptions) {
   return async function (obj: Record<string, any>, args: any) {
+    const {defaultFormat, defaultZone} = options ?? {};
     // TODO: This needs to accept date only and still work, like '2021-01-01', instead of full date time '2021-01-01T00:00:00.000Z'
     const date = DateTime.fromMillis(Date.parse(obj[field]));
 
