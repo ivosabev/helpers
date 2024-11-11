@@ -153,9 +153,7 @@ function lookupRelative(relText) {
     twelfth: 12,
   };
 
-  const relativeBehavior = {
-    this: 1,
-  };
+  const relativeBehavior = {this: 1};
 
   const relTextLower = relText.toLowerCase();
 

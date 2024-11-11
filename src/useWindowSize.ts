@@ -59,9 +59,7 @@ export function useWindowSize(
  * console.log(`Window size: ${width} x ${height}`);
  * ```
  */
-export function useWindowSize(
-  options: Partial<UseWindowSizeOptions<boolean>> = {},
-): WindowSize | WindowSize<number> {
+export function useWindowSize(options: Partial<UseWindowSizeOptions<boolean>> = {}): WindowSize | WindowSize<number> {
   let {initializeWithValue = true} = options;
   if (IS_SERVER) {
     initializeWithValue = false;

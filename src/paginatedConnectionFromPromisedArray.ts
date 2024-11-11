@@ -3,39 +3,19 @@ import {omit} from './omit.js';
 import {paginatedConnectionFromArray} from './paginatedConnectionFromArray.js';
 
 export const paginationArgs = {
-  limit: {
-    type: GraphQLInt,
-  },
-  offset: {
-    type: GraphQLInt,
-  },
-  page: {
-    type: GraphQLInt,
-  },
+  limit: {type: GraphQLInt},
+  offset: {type: GraphQLInt},
+  page: {type: GraphQLInt},
 };
 
 export const paginationFields = {
-  end: {
-    type: new GraphQLNonNull(GraphQLInt),
-  },
-  hasNext: {
-    type: new GraphQLNonNull(GraphQLBoolean),
-  },
-  hasPrev: {
-    type: new GraphQLNonNull(GraphQLBoolean),
-  },
-  page: {
-    type: new GraphQLNonNull(GraphQLInt),
-  },
-  pages: {
-    type: new GraphQLNonNull(GraphQLInt),
-  },
-  start: {
-    type: new GraphQLNonNull(GraphQLInt),
-  },
-  total: {
-    type: new GraphQLNonNull(GraphQLInt),
-  },
+  end: {type: new GraphQLNonNull(GraphQLInt)},
+  hasNext: {type: new GraphQLNonNull(GraphQLBoolean)},
+  hasPrev: {type: new GraphQLNonNull(GraphQLBoolean)},
+  page: {type: new GraphQLNonNull(GraphQLInt)},
+  pages: {type: new GraphQLNonNull(GraphQLInt)},
+  start: {type: new GraphQLNonNull(GraphQLInt)},
+  total: {type: new GraphQLNonNull(GraphQLInt)},
 };
 
 export const paginatedConnectionFromPromisedArray = async (fn: any, rawArgs: any, _info?: GraphQLResolveInfo) => {
