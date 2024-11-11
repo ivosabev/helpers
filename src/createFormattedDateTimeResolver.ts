@@ -2,8 +2,9 @@
 import {DateTime} from 'luxon';
 
 type CreateFormattedDateTimeResolverOptions = {
-  defaultFormat?: string;
-  defaultZone?: string;
+  inputZone?: string;
+  format?: string;
+  outputZone?: string;
 }
 
 /**
@@ -19,16 +20,15 @@ type CreateFormattedDateTimeResolverOptions = {
  */
 
 export function createFormattedDateTimeResolver(field: string, options?: CreateFormattedDateTimeResolverOptions) {
-  return async function (obj: Record<string, any>, args: {format?: string, zone?: string}) {
-    const {defaultFormat, defaultZone} = options ?? {};
-    const date = DateTime.fromMillis(Date.parse(obj[field]));
+  return async function (obj: Record<string, any>, args: {format?: string, inputZone?: string, outputZone?: string}) {
+    const date = DateTime.fromMillis(Date.parse(obj[field]), {zone: args.inputZone || options?.inputZone || 'UTC'});
 
     if (!date.isValid) {
       throw new Error(`Field ${field} is not a valid date`);
     }
 
-    const format = args.format || defaultFormat || `yyyy-MM-dd'T'HH:mm:ss.SSSZZ`;
-    const zone = date.zone || defaultZone || 'UTC';
+    const format = args.format || options?.format || `yyyy-MM-dd'T'HH:mm:ss.SSSZZ`;
+    const zone = date.zone || options?.outputZone || 'UTC';
 
     return date.setZone(zone).toFormat(format);
   };
