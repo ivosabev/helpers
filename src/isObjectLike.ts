@@ -1,1 +1,3 @@
-export const isObjectLike = (v: any) => v !== null && typeof v === 'object';
+export function isObjectLike(value: unknown): value is object {
+  return value !== null && typeof value === 'object';
+}
