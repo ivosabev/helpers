@@ -21,6 +21,10 @@ type CreateFormattedDateTimeResolverOptions = {
 
 export function createFormattedDateTimeResolver(field: string, options?: CreateFormattedDateTimeResolverOptions) {
   return async function (obj: Record<string, any>, args: {format?: string, inputZone?: string, outputZone?: string}) {
+    if (!obj[field]) {
+      return null;
+    }
+
     const date = DateTime.fromMillis(Date.parse(obj[field]), {zone: args.inputZone || options?.inputZone || 'UTC'});
 
     if (!date.isValid) {
