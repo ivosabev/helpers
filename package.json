@@ -31,7 +31,7 @@
     }
   },
   "dependencies": {
-    "@ivosabev/config": "2.7.5",
+    "@ivosabev/config": "2.7.6",
     "@web3-storage/multipart-parser": "1.0.0",
     "chardet": "2.0.0",
     "crypto-js": "4.2.0",
@@ -56,29 +56,29 @@
     }
   },
   "devDependencies": {
-    "@graphql-tools/utils": "10.6.1",
+    "@graphql-tools/utils": "10.6.2",
     "@types/crypto-js": "4.2.2",
     "@types/lodash": "4.17.13",
     "@types/luxon": "3.4.2",
-    "@types/node": "22.10.1",
+    "@types/node": "22.10.2",
     "@types/object-hash": "3.0.6",
     "@types/papaparse": "5.3.15",
     "@types/pluralize": "0.0.33",
-    "@types/react": "18.3.12",
+    "@types/react": "19.0.1",
     "@types/validator": "13.12.2",
-    "@typescript-eslint/parser": "8.16.0",
+    "@typescript-eslint/parser": "8.18.0",
     "esbuild": "0.24.0",
     "eslint": "9.16.0",
     "graphql": "16.9.0",
     "graphql-relay": "0.10.2",
     "npm-check": "6.0.1",
     "npm-run-all": "4.1.5",
-    "react": "18.3.1",
+    "react": "19.0.0",
     "release-it": "17.10.0",
     "tslib": "2.8.1",
     "tsup": "8.3.5",
     "typescript": "5.7.2",
-    "zod": "3.23.8"
+    "zod": "3.24.1"
   },
   "scripts": {
     "build": "npm run validate && rm -rf dist && tsup && scripts/afterBuild.sh",
