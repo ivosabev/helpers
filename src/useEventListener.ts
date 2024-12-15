@@ -1,5 +1,4 @@
 // https://github.com/juliencrn/usehooks-ts/blob/master/packages/usehooks-ts/src/useEventListener/useEventListener.ts
-/* eslint-disable @stylistic/js/max-len */
 
 import {useEffect, useRef, type RefObject} from 'react';
 import {useIsomorphicLayoutEffect} from './useIsomorphicLayoutEffect.js';
