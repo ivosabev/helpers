@@ -31,7 +31,6 @@
     }
   },
   "dependencies": {
-    "@ivosabev/config": "2.7.7",
     "@web3-storage/multipart-parser": "1.0.0",
     "chardet": "2.0.0",
     "crypto-js": "4.2.0",
@@ -56,6 +55,7 @@
     }
   },
   "devDependencies": {
+    "@ivosabev/config": "2.7.7",
     "@graphql-tools/utils": "10.6.4",
     "@types/crypto-js": "4.2.2",
     "@types/lodash": "4.17.13",
