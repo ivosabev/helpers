@@ -1,3 +1,5 @@
+import {toNumber} from './toNumber.js';
+
 export const fromGlobalId = (globalId: string) => {
   try {
     const unbasedGlobalId = Buffer.from(globalId, 'base64').toString();
@@ -7,9 +9,16 @@ export const fromGlobalId = (globalId: string) => {
     const type = unbasedGlobalId.substring(0, delimiterPos);
 
     if (type) {
-      return {id, type};
+      return {
+        id: toNumber(id) ?? id,
+        type,
+      };
     }
-    return {id: globalId, type: ''};
+
+    return {
+      id: globalId,
+      type: '',
+    };
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (e) {
     return {
