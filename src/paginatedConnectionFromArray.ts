@@ -2,7 +2,7 @@ import {connectionFromArray} from 'graphql-relay';
 
 export const paginatedConnectionFromArray = async (records: any[], total: number, rawArgs: any) => {
   // Clean values
-  const DEFAULT_LIMIT = Infinity;
+  const DEFAULT_LIMIT = undefined;
   const args = {
     ...rawArgs,
     limit: rawArgs.limit || DEFAULT_LIMIT,

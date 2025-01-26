@@ -20,7 +20,7 @@ export const paginationFields = {
 
 export const paginatedConnectionFromPromisedArray = async (fn: any, rawArgs: any, _info?: GraphQLResolveInfo) => {
   // Clean values
-  const DEFAULT_LIMIT = Infinity;
+  const DEFAULT_LIMIT = undefined;
   const args = {
     ...rawArgs,
     limit: rawArgs.limit != null ? rawArgs.limit : DEFAULT_LIMIT,
