@@ -14,6 +14,7 @@ export const bulgarianPhoneCodes = [
   '087', // Vivacom
   '088', // A1
   '098', // A1
+  '099', // Yettel
   '089', // Yettel
   '02',
   '02991',
