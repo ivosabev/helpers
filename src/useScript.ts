@@ -3,7 +3,7 @@
 import {useEffect, useState} from 'react';
 
 /** Script loading status. */
-type UseScriptStatus = 'idle' | 'loading' | 'ready' | 'error'
+type UseScriptStatus = 'idle' | 'loading' | 'ready' | 'error';
 
 /** Hook options. */
 type UseScriptOptions = {
@@ -13,7 +13,7 @@ type UseScriptOptions = {
   removeOnUnmount?: boolean
   /** Script's `id` (optional). */
   id?: string
-}
+};
 
 // Cached script statuses
 const cachedScriptStatuses = new Map<string, UseScriptStatus | undefined>();

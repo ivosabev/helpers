@@ -18,7 +18,7 @@ type WindowSize<T extends number | undefined = number | undefined> = {
   viewportWidth: T
   /** The height of the window viewport. */
   viewportHeight: T
-}
+};
 
 /**
  * Hook options.
@@ -37,16 +37,16 @@ type UseWindowSizeOptions<InitializeWithValue extends boolean | undefined> = {
    * @default undefined
    */
   debounceDelay?: number
-}
+};
 
 const IS_SERVER = typeof window === 'undefined';
 
 // SSR version of useWindowSize.
-export function useWindowSize(options: UseWindowSizeOptions<false>): WindowSize
+export function useWindowSize(options: UseWindowSizeOptions<false>): WindowSize;
 // CSR version of useWindowSize.
 export function useWindowSize(
   options?: Partial<UseWindowSizeOptions<true>>,
-): WindowSize<number>
+): WindowSize<number>;
 /**
  * Custom hook that tracks the size of the window.
  * @param {?UseWindowSizeOptions} [options] - The options for customizing the behavior of the hook (optional).

@@ -9,7 +9,7 @@ function useEventListener<K extends keyof MediaQueryListEventMap>(
   handler: (event: MediaQueryListEventMap[K]) => void,
   element: RefObject<MediaQueryList>,
   options?: boolean | AddEventListenerOptions,
-): void
+): void;
 
 // Window Event based useEventListener interface
 function useEventListener<K extends keyof WindowEventMap>(
@@ -17,7 +17,7 @@ function useEventListener<K extends keyof WindowEventMap>(
   handler: (event: WindowEventMap[K]) => void,
   element?: undefined,
   options?: boolean | AddEventListenerOptions,
-): void
+): void;
 
 // Element Event based useEventListener interface
 function useEventListener<
@@ -32,7 +32,7 @@ function useEventListener<
     | ((event: SVGElementEventMap[K]) => void),
   element: RefObject<T>,
   options?: boolean | AddEventListenerOptions,
-): void
+): void;
 
 // Document Event based useEventListener interface
 function useEventListener<K extends keyof DocumentEventMap>(
@@ -40,7 +40,7 @@ function useEventListener<K extends keyof DocumentEventMap>(
   handler: (event: DocumentEventMap[K]) => void,
   element: RefObject<Document>,
   options?: boolean | AddEventListenerOptions,
-): void
+): void;
 
 /**
  * Custom hook that attaches event listeners to DOM elements, the window, or media query lists.

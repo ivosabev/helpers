@@ -4,7 +4,7 @@ type CreateFormattedDateResolverOptions = {
   inputZone?: string;
   format?: string;
   outputZone?: string;
-}
+};
 
 export function createFormattedDateResolver(field: string, options?: CreateFormattedDateResolverOptions) {
   return async function (obj: Record<string, any>, args: any) {

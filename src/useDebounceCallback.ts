@@ -20,7 +20,7 @@ type DebounceOptions = {
    * The maximum time the specified function is allowed to be delayed before it is invoked.
    */
   maxWait?: number
-}
+};
 
 /** Functions to manage a debounced callback. */
 type ControlFunctions = {
@@ -33,7 +33,7 @@ type ControlFunctions = {
    * @returns `true` if there are pending invocations, otherwise `false`.
    */
   isPending: () => boolean
-}
+};
 
 /**
  * Represents the state and control functions of a debounced callback.
@@ -45,7 +45,7 @@ type ControlFunctions = {
 export type DebouncedState<T extends (...args: any) => ReturnType<T>> = ((
   ...args: Parameters<T>
 ) => ReturnType<T> | undefined) &
-  ControlFunctions
+  ControlFunctions;
 
 /**
  * Custom hook that creates a debounced version of a callback function.

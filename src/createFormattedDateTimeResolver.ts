@@ -5,7 +5,7 @@ type CreateFormattedDateTimeResolverOptions = {
   inputZone?: string;
   format?: string;
   outputZone?: string;
-}
+};
 
 /**
  * Helper function to create a resolver for a formatted date time field.

@@ -25,7 +25,7 @@ type UseDebounceValueOptions<T> = {
   /** A function to determine if the value has changed. Defaults to a function that checks
    * if the value is strictly equal to the previous value. */
   equalityFn?: (left: T, right: T) => boolean
-}
+};
 
 /**
  * Custom hook that returns a debounced version of the provided value, along with a function to update it.
