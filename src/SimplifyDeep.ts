@@ -1,1 +1,2 @@
-export {type SimplifyDeep} from 'type-fest';
+import {type SimplifyDeep} from 'type-fest';
+export type {SimplifyDeep};
