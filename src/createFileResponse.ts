@@ -22,7 +22,7 @@ export const createFileResponse = async (fileStreamOrFilepath: FileStreamOrFilep
   const ext = path.parse(filename).ext.toLowerCase();
   const body = await getBufferFromReadableStream(stream);
 
-  return new Response(body, {
+  return new Response(new Uint8Array(body), {
     headers: {
       'Content-Disposition': `attachment; filename="${encodeURI(filename)}"`,
       'Content-Length': body.byteLength.toString(),

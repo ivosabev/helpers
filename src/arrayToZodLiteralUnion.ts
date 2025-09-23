@@ -1,4 +1,4 @@
-import {z, type Primitive} from 'zod';
+import {z, type Primitive} from 'zod/v3';
 
 function isValidZodLiteralUnion<T extends z.ZodLiteral<unknown>>(literals: T[]): literals is [T, T, ...T[]] {
   return literals.length >= 2;

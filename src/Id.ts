@@ -1,4 +1,4 @@
-import {z} from 'zod';
+import {z} from 'zod/v3';
 import {castToBigInt, castToNumber, castToString} from './cast.js';
 import {toArray} from './toArray.js';
 import {toBigInt} from './toBigInt.js';

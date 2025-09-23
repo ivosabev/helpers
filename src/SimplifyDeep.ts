@@ -203,8 +203,8 @@ type SimplifyDeepProperties = SimplifyDeep<Properties1 & Properties2, ComplexTyp
 @category Object
 */
 export type SimplifyDeep<Type, ExcludeType = never> =
-	ConditionalSimplifyDeep<
-	  Type,
+  ConditionalSimplifyDeep<
+    Type,
 	ExcludeType | NonRecursiveType | Set<unknown> | Map<unknown, unknown>,
 	object
-	>;
+  >;
