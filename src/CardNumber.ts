@@ -1,4 +1,5 @@
 import z from 'zod';
+import {getCardType, type CardType} from './CardType.js';
 
 /**
  * Luhn algorithm for credit card validation
@@ -35,27 +36,17 @@ export function luhnCardNumberCheck(cardNumber: string): boolean {
 
 export const cardNumberSchema = z
   .string()
-  .refine((v) => {
-    const digits = v.replace(/\D/g, '');
-    return digits.length === 16;
-  }, {
-    message: 'Card number must be 16 digits.',
-  })
+  .transform((val) => val.replace(/\s+/g, '')) // Remove spaces
   .refine((val) => luhnCardNumberCheck(val), {
     message: 'Invalid card number. Please check and try again.',
   });
 export type CardNumber = z.infer<typeof cardNumberSchema>;
 
-export const mastercardCardNumberSchema = cardNumberSchema.refine((val) => {
-  const digits = val.replace(/\D/g, '');
-  return /^5[1-5]/.test(digits) || /^(2221|2720)/.test(digits);
-}, {
-  message: 'Invalid Mastercard number. Must start with digits 51 through 55 or 2221-2720.',
-});
-
-export const visaCardNumberSchema = cardNumberSchema.refine((val) => {
-  const digits = val.replace(/\D/g, '');
-  return /^4/.test(digits);
-}, {
-  message: 'Invalid Visa card number. Must start with digit 4.',
-});
+export function createCardNumberSchema(cardTypes: CardType[]) {
+  return cardNumberSchema.refine((v) => {
+    const type = getCardType(v);
+    return type && cardTypes.includes(type);
+  }, {
+    message: 'Invalid card type. Supported types are: ' + cardTypes.join(', '),
+  });
+}
