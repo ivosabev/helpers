@@ -1,6 +1,9 @@
 {
   "$schema": "https://unpkg.com/release-it@17/schema/release-it.json",
   "npm": {
-    "publishPath": "./dist"
+    "publishPath": "./dist"    
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   }
 }
