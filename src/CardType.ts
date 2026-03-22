@@ -5,7 +5,7 @@ export const CardType = {
   MASTERCARD: 'Mastercard',
   VISA: 'Visa',
 } as const;
-export type CardType = typeof CardType[keyof typeof CardType];
+export type CardType = (typeof CardType)[keyof typeof CardType];
 
 export function getCardType(cardNumber: string): CardType | undefined {
   if (isVisa(cardNumber)) {

@@ -1,4 +1,3 @@
-
 import {DateTime} from 'luxon';
 
 type CreateFormattedDateTimeResolverOptions = {
@@ -20,7 +19,7 @@ type CreateFormattedDateTimeResolverOptions = {
  */
 
 export function createFormattedDateTimeResolver(field: string, options?: CreateFormattedDateTimeResolverOptions) {
-  return async function (obj: Record<string, any>, args: {format?: string, inputZone?: string, outputZone?: string}) {
+  return async function (obj: Record<string, any>, args: {format?: string; inputZone?: string; outputZone?: string}) {
     if (!obj[field]) {
       return null;
     }

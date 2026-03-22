@@ -1,4 +1,4 @@
-export const isDirty = (a: any | null | undefined, b: any | null | undefined, isEqual: () => boolean) => {
+export const isDirty = (a: any, b: any, isEqual: () => boolean) => {
   const isDirty = !(typeof a === 'undefined' || typeof b === 'undefined' || a === b || (a && b && isEqual()));
 
   if (isDirty) {

@@ -5,7 +5,7 @@ import {toNumber} from './toNumber.js';
 export function percentage(value: number | string, precision?: number): string;
 export function percentage([a, b]: [number, number], precision?: number): string;
 export function percentage([a, b]: [string, string], precision?: number): string;
-export function percentage(value: any | string, precision = 0) {
+export function percentage(value: any, precision = 0) {
   let percentage = 0;
   if (Array.isArray(value) && value.length === 2) {
     percentage = calcPercentage(value[0], value[1]);

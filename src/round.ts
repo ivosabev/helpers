@@ -14,6 +14,6 @@
 export function round(value: number, precision: number = 2) {
   const sign = value < 0 ? -1 : 1;
   const factor = 10 ** precision;
-  const result = sign * Math.round(Math.abs(value * factor + 0.00000001)) / factor;
+  const result = (sign * Math.round(Math.abs(value * factor + 0.00000001))) / factor;
   return Object.is(result, -0) ? 0 : result;
 }

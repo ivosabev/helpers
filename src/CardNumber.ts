@@ -43,10 +43,13 @@ export const cardNumberSchema = z
 export type CardNumber = z.infer<typeof cardNumberSchema>;
 
 export function createCardNumberSchema(cardTypes: CardType[]) {
-  return cardNumberSchema.refine((v) => {
-    const type = getCardType(v);
-    return type && cardTypes.includes(type);
-  }, {
-    message: 'Invalid card type. Supported types are: ' + cardTypes.join(', '),
-  });
+  return cardNumberSchema.refine(
+    (v) => {
+      const type = getCardType(v);
+      return type && cardTypes.includes(type);
+    },
+    {
+      message: 'Invalid card type. Supported types are: ' + cardTypes.join(', '),
+    },
+  );
 }

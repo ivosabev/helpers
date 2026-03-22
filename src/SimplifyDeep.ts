@@ -77,14 +77,7 @@ Matches any [primitive value](https://developer.mozilla.org/en-US/docs/Glossary/
 
 @category Type
 */
-export type Primitive =
-	| null
-	| undefined
-	| string
-	| number
-	| boolean
-	| symbol
-	| bigint;
+export type Primitive = null | undefined | string | number | boolean | symbol | bigint;
 
 /**
 Matches any primitive, `void`, `Date`, or `RegExp` value.
@@ -202,9 +195,8 @@ type SimplifyDeepProperties = SimplifyDeep<Properties1 & Properties2, ComplexTyp
 @see Simplify
 @category Object
 */
-export type SimplifyDeep<Type, ExcludeType = never> =
-  ConditionalSimplifyDeep<
-    Type,
-	ExcludeType | NonRecursiveType | Set<unknown> | Map<unknown, unknown>,
-	object
-  >;
+export type SimplifyDeep<Type, ExcludeType = never> = ConditionalSimplifyDeep<
+  Type,
+  ExcludeType | NonRecursiveType | Set<unknown> | Map<unknown, unknown>,
+  object
+>;

@@ -12,6 +12,7 @@ export function createIntIdsSchema(idSchema: typeof intIdSchema) {
   return z.preprocess((v) => toArray(String(v).split(',').map(toNumber)), z.array(idSchema));
 }
 
+// @ts-expect-error
 export const bigIntIdSchema = z.preprocess(castToBigInt(), z.bigint().positive('Required'));
 export type BigIntId = z.infer<typeof bigIntIdSchema>;
 

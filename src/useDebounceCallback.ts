@@ -10,29 +10,29 @@ type DebounceOptions = {
    * Determines whether the function should be invoked on the leading edge of the timeout.
    * @default false
    */
-  leading?: boolean
+  leading?: boolean;
   /**
    * Determines whether the function should be invoked on the trailing edge of the timeout.
    * @default false
    */
-  trailing?: boolean
+  trailing?: boolean;
   /**
    * The maximum time the specified function is allowed to be delayed before it is invoked.
    */
-  maxWait?: number
+  maxWait?: number;
 };
 
 /** Functions to manage a debounced callback. */
 type ControlFunctions = {
   /** Cancels pending function invocations. */
-  cancel: () => void
+  cancel: () => void;
   /** Immediately invokes pending function invocations. */
-  flush: () => void
+  flush: () => void;
   /**
    * Checks if there are any pending function invocations.
    * @returns `true` if there are pending invocations, otherwise `false`.
    */
-  isPending: () => boolean
+  isPending: () => boolean;
 };
 
 /**
@@ -42,9 +42,7 @@ type ControlFunctions = {
  * Ensure proper handling in your code.
  */
 
-export type DebouncedState<T extends (...args: any) => ReturnType<T>> = ((
-  ...args: Parameters<T>
-) => ReturnType<T> | undefined) &
+export type DebouncedState<T extends (...args: any) => ReturnType<T>> = ((...args: Parameters<T>) => ReturnType<T> | undefined) &
   ControlFunctions;
 
 /**
@@ -71,7 +69,7 @@ export type DebouncedState<T extends (...args: any) => ReturnType<T>> = ((
  * ```
  */
 
-export function useDebounceCallback<T extends(...args: any) => ReturnType<T>>(
+export function useDebounceCallback<T extends (...args: any) => ReturnType<T>>(
   func: T,
   delay = 500,
   options?: DebounceOptions,

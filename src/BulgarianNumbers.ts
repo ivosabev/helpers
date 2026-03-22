@@ -9,15 +9,15 @@ import {validatePn} from './validatePn.js';
 export function bulgarianCompanyIdentificationNumberSchema(message = 'Невалиден ЕИК номер') {
   return z.preprocess(castToString(), z.string()).refine(validateCin, {message});
 }
-export type BulgarianCompanyIdentificationNumber = String;
+export type BulgarianCompanyIdentificationNumber = string;
 
 export function bulgarianPersonalIdentificationNumberSchema(message = 'Невалиден ЕГН номер') {
   return z.preprocess(castToString(), z.string()).refine(validateEgn, {message});
 }
-export type BulgarianPersonalIdentificationNumber = String;
+export type BulgarianPersonalIdentificationNumber = string;
 
 export function bulgarianForeignPersonalNumberSchema(message = 'Невалиден ЛНЧ номер') {
   return z.preprocess(castToString(), z.string()).refine(validatePn, {message});
 }
 
-export type BulgarianForeignPersonalNumber = String;
+export type BulgarianForeignPersonalNumber = string;

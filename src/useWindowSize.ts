@@ -11,13 +11,13 @@ import {useIsomorphicLayoutEffect} from './useIsomorphicLayoutEffect.js';
  */
 type WindowSize<T extends number | undefined = number | undefined> = {
   /** The width of the window. */
-  width: T
+  width: T;
   /** The height of the window. */
-  height: T
+  height: T;
   /** The width of the window. */
-  viewportWidth: T
+  viewportWidth: T;
   /** The height of the window viewport. */
-  viewportHeight: T
+  viewportHeight: T;
 };
 
 /**
@@ -31,12 +31,12 @@ type UseWindowSizeOptions<InitializeWithValue extends boolean | undefined> = {
    * returning `undefined` initially.
    * @default true
    */
-  initializeWithValue: InitializeWithValue
+  initializeWithValue: InitializeWithValue;
   /**
    * The delay in milliseconds before the state is updated (disabled by default for retro-compatibility).
    * @default undefined
    */
-  debounceDelay?: number
+  debounceDelay?: number;
 };
 
 const IS_SERVER = typeof window === 'undefined';
@@ -44,9 +44,7 @@ const IS_SERVER = typeof window === 'undefined';
 // SSR version of useWindowSize.
 export function useWindowSize(options: UseWindowSizeOptions<false>): WindowSize;
 // CSR version of useWindowSize.
-export function useWindowSize(
-  options?: Partial<UseWindowSizeOptions<true>>,
-): WindowSize<number>;
+export function useWindowSize(options?: Partial<UseWindowSizeOptions<true>>): WindowSize<number>;
 /**
  * Custom hook that tracks the size of the window.
  * @param {?UseWindowSizeOptions} [options] - The options for customizing the behavior of the hook (optional).
@@ -82,15 +80,10 @@ export function useWindowSize(options: Partial<UseWindowSizeOptions<boolean>> = 
     };
   });
 
-  const debouncedSetWindowSize = useDebounceCallback(
-    setWindowSize,
-    options.debounceDelay,
-  );
+  const debouncedSetWindowSize = useDebounceCallback(setWindowSize, options.debounceDelay);
 
   function handleSize() {
-    const setSize = options.debounceDelay
-      ? debouncedSetWindowSize
-      : setWindowSize;
+    const setSize = options.debounceDelay ? debouncedSetWindowSize : setWindowSize;
 
     setSize({
       height: window.innerHeight,
