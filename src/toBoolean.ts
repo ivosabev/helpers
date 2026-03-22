@@ -1,4 +1,6 @@
-export const toBoolean = (v: unknown, d?: any) => {
+import {type BooleanLike} from './BooleanLike.js';
+
+export const toBoolean = (v: BooleanLike, d?: boolean) => {
   if (v === false || v === 'false' || v === 0 || v === '0') {
     return false;
   }
