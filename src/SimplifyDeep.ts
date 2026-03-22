@@ -1,3 +1,5 @@
+import {type Primitive} from './Primitive.js';
+
 // SOURCE: https://github.com/sindresorhus/type-fest/blob/main/source/simplify-deep.d.ts
 
 /**
@@ -71,13 +73,6 @@ export type ConditionalSimplifyDeep<Type, ExcludeType = never, IncludeType = unk
   : Type extends IncludeType
     ? {[TypeKey in keyof Type]: ConditionalSimplifyDeep<Type[TypeKey], ExcludeType, IncludeType>}
     : Type;
-
-/**
-Matches any [primitive value](https://developer.mozilla.org/en-US/docs/Glossary/Primitive).
-
-@category Type
-*/
-export type Primitive = null | undefined | string | number | boolean | symbol | bigint;
 
 /**
 Matches any primitive, `void`, `Date`, or `RegExp` value.
