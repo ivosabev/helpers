@@ -27,7 +27,7 @@
   "scripts": {
     "build": "npm run validate && rm -rf dist && run-p -l build-js build-dts && scripts/afterBuild.sh",
     "build-js": "esbuild src/**/*.ts --outdir=dist --format=esm --sourcemap --target=es2023",
-    "build-dts": "tsgo --declaration --emitDeclarationOnly --noEmit false --rootDir src --outDir dist",
+    "build-dts": "tsgo -p tsconfig.build.json --declaration --emitDeclarationOnly --noEmit false --rootDir src --outDir dist",
     "format": "oxfmt",
     "format-check": "oxfmt --check",
     "lint": "oxlint",
