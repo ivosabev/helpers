@@ -36,7 +36,7 @@
     "release-it": "release-it",
     "release": "scripts/release.sh",
     "typecheck": "tsc",
-    "up": "pnpm update --interactive --latest",
+    "up": "corepack use pnpm@latest && pnpm update --interactive --latest",
     "validate": "run-p -l lint format typecheck",
     "watch": "npm run build && watchman-make -p 'src/**/*' --run 'npm run build'"
   },
