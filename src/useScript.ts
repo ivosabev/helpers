@@ -69,7 +69,9 @@ export function useScript(src: string | null, options?: UseScriptOptions): UseSc
 
     const cachedScriptStatus = cachedScriptStatuses.get(src);
     if (cachedScriptStatus === 'ready' || cachedScriptStatus === 'error') {
-      // If the script is already cached, set its status immediately
+      // Sync once from the external script cache: the script already finished
+      // loading, so no load/error event will fire to update this hook instance.
+      // oxlint-disable-next-line react/react-compiler
       setStatus(cachedScriptStatus);
       return;
     }

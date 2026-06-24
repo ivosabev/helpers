@@ -1,6 +1,6 @@
 // https://github.com/juliencrn/usehooks-ts/blob/master/packages/usehooks-ts/src/useDebounceValue/useDebounceValue.ts
 
-import {useRef, useState} from 'react';
+import {useState} from 'react';
 import {type DebouncedState, useDebounceCallback} from './useDebounceCallback.js';
 
 /**
@@ -49,14 +49,14 @@ export function useDebounceValue<T>(
   const eq = options?.equalityFn ?? ((left: T, right: T) => left === right);
   const unwrappedInitialValue = initialValue instanceof Function ? initialValue() : initialValue;
   const [debouncedValue, setDebouncedValue] = useState<T>(unwrappedInitialValue);
-  const previousValueRef = useRef<T | undefined>(unwrappedInitialValue);
+  const [previousValue, setPreviousValue] = useState<T>(unwrappedInitialValue);
 
   const updateDebouncedValue = useDebounceCallback(setDebouncedValue, delay, options);
 
   // Update the debounced value if the initial value changes
-  if (!eq(previousValueRef.current as T, unwrappedInitialValue)) {
+  if (!eq(previousValue, unwrappedInitialValue)) {
     updateDebouncedValue(unwrappedInitialValue);
-    previousValueRef.current = unwrappedInitialValue;
+    setPreviousValue(unwrappedInitialValue);
   }
 
   return [debouncedValue, updateDebouncedValue];
