@@ -1,3 +1,3 @@
 npm run build
-code dist/package.json
+"/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" dist/package.json
 npx release-it
