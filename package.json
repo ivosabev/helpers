@@ -54,7 +54,7 @@
   },
   "devDependencies": {
     "@graphql-tools/utils": "11.2.0",
-    "@ivosabev/config": "4.0.11",
+    "@ivosabev/config": "5.0.0",
     "@types/crypto-js": "4.2.2",
     "@types/lodash": "4.17.24",
     "@types/luxon": "3.7.2",
@@ -73,7 +73,7 @@
     "oxlint-tsgolint": "0.24.0",
     "react": "19.2.7",
     "release-it": "20.2.1",
-    "typescript": "rc",
+    "typescript": "7.0.2",
     "zod": "4.4.3"
   },
   "peerDependencies": {
