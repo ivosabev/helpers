@@ -58,7 +58,7 @@
     "@types/crypto-js": "4.2.2",
     "@types/lodash": "4.17.24",
     "@types/luxon": "3.7.2",
-    "@types/node": "26.1.0",
+    "@types/node": "26.1.1",
     "@types/object-hash": "3.0.6",
     "@types/papaparse": "5.5.2",
     "@types/pluralize": "0.0.33",
@@ -68,8 +68,8 @@
     "graphql": "17.0.2",
     "graphql-relay": "0.10.2",
     "npm-run-all": "4.1.5",
-    "oxfmt": "0.58.0",
-    "oxlint": "1.73.0",
+    "oxfmt": "0.59.0",
+    "oxlint": "1.74.0",
     "oxlint-tsgolint": "0.24.0",
     "react": "19.2.7",
     "release-it": "20.2.1",
@@ -91,5 +91,5 @@
   "engines": {
     "node": ">=22"
   },
-  "packageManager": "pnpm@11.10.0+sha512.0b7f8b98060031904c017e3a41eb187a16d40eeb829b95c4f8cb03681761fc4ab53dd219115b9b447f4dce1a05a214764461e7d3703392a9f32f9511ce8c86c8"
+  "packageManager": "pnpm@11.13.1+sha512.b2fc7683b8a6525414e7d13e1ba28caaddde96bf66ec540bfaeb7e702b81f3e0be4d1f295edf7f9fe0396740a8dce4509c582ddf79891f4543fea32d37645f25"
 }
