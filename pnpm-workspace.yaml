@@ -2,3 +2,9 @@ allowBuilds:
   esbuild: true
 minimumReleaseAgeExclude:
   - '@ivosabev/*'
+
+# graphql-relay 0.10.2 still declares graphql ^16; connectionFromArray
+# only uses GraphQL types that exist unchanged in 17.
+peerDependencyRules:
+  allowedVersions:
+    graphql-relay>graphql: '17'

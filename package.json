@@ -77,8 +77,8 @@
     "zod": "4.4.3"
   },
   "peerDependencies": {
-    "@graphql-tools/utils": "10.x",
-    "graphql": "16.x",
+    "@graphql-tools/utils": "12.x",
+    "graphql": "17.x",
     "graphql-relay": "0.10.2",
     "react": "18.x || 19.x",
     "zod": "4.x"
