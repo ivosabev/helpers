@@ -9,6 +9,7 @@ permissions:
   id-token: write
   contents: write
   pull-requests: write
+  packages: read
 
 jobs:
   bump:
@@ -22,6 +23,12 @@ jobs:
           package-manager-cache: false
 
       - run: corepack enable
+
+      - name: Auth GitHub Packages
+        env:
+          PACKAGES_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
+        run: echo "//npm.pkg.github.com/:_authToken=${PACKAGES_TOKEN}" >> .npmrc
+
       - run: pnpm install
 
       - name: Bump latest dependencies
