@@ -21,10 +21,9 @@ function getWeight(a: Record<string, any>) {
 export function getCityByCityOrZip(cityOrZip: string) {
   return [
     ...fuzzysort.go(cityOrZip, bulgarianPostCodes, {
-      all: false,
       keys: ['name', 'zip'],
       limit: 10,
-      threshold: -25,
+      threshold: 0,
     }),
   ]
     .sort((a, b) => {
