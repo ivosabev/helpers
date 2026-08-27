@@ -3,6 +3,10 @@ allowBuilds:
 minimumReleaseAgeExclude:
   - '@ivosabev/*'
 
+# parse-url still depends on this stub; parse-path ships its own types.
+overrides:
+  '@types/parse-path': '-'
+
 # graphql-relay 0.10.2 still declares graphql ^16; connectionFromArray
 # only uses GraphQL types that exist unchanged in 17.
 peerDependencyRules:
