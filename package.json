@@ -48,7 +48,7 @@
     "object-hash": "3.0.0",
     "papaparse": "5.7.0",
     "pluralize": "8.0.0",
-    "type-fest": "5.8.0",
+    "type-fest": "5.9.0",
     "validator": "13.15.35"
   },
   "devDependencies": {
@@ -56,7 +56,7 @@
     "@ivosabev/config": "5.0.6",
     "@types/lodash": "4.17.25",
     "@types/luxon": "3.7.5",
-    "@types/node": "26.3.0",
+    "@types/node": "26.4.1",
     "@types/object-hash": "3.0.6",
     "@types/papaparse": "5.5.2",
     "@types/pluralize": "0.0.33",
@@ -66,13 +66,13 @@
     "graphql": "17.0.2",
     "graphql-relay": "0.10.2",
     "npm-run-all": "4.1.5",
-    "oxfmt": "0.65.0",
-    "oxlint": "1.80.0",
+    "oxfmt": "0.66.0",
+    "oxlint": "1.81.0",
     "oxlint-tsgolint": "7.0.2001",
     "react": "19.2.8",
     "release-it": "21.0.2",
     "typescript": "7.0.2",
-    "zod": "4.4.3"
+    "zod": "4.5.4"
   },
   "peerDependencies": {
     "@graphql-tools/utils": "12.x",
@@ -89,5 +89,5 @@
   "engines": {
     "node": ">=22"
   },
-  "packageManager": "pnpm@11.24.0+sha512.bd27e345e976dcb0be0b7a1228217b049a817e21b1f355c90dbe7dc46671895a8bc1e6d06c24554505ea93ea0b45f489a27ec1bfbc8de6a9659fca0f16fa0000"
+  "packageManager": "pnpm@11.25.0+sha512.5cde925b4f075f725eb71fbae18a42ffe784524789f19b61c731cb8721ec28aaee160e01a8d5af4fedb2a42cdbf300efe23db356b0d4a17b4d63e11f8ab7c956"
 }
