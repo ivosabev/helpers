@@ -1,4 +1,4 @@
-const isValid = (p: string) => {
+const isValid = (p: string): boolean => {
   if (p[0] === ')') {
     return false;
   }
@@ -20,19 +20,15 @@ const isValid = (p: string) => {
   return counter === 0;
 };
 
-export function removeInvalidParentheses(s: string) {
+export function removeInvalidParentheses(s: string): string {
   if (isValid(s)) {
     return s;
   }
 
-  const collection = new Set();
+  const collection = new Set<string>();
 
   for (let i = 0; i < s.length; i += 1) {
-    let p;
-    if (i === 0) {
-      p = s.slice(1, s.length);
-    }
-    p = s.slice(0, i) + s.slice(i + 1, s.length);
+    const p = s.slice(0, i) + s.slice(i + 1);
 
     if (isValid(p)) {
       collection.add(p);
