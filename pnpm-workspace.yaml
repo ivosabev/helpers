@@ -1,7 +1,6 @@
 allowBuilds:
   esbuild: true
-minimumReleaseAgeExclude:
-  - '@ivosabev/*'
+minimumReleaseAge: 0
 
 # parse-url still depends on this stub; parse-path ships its own types.
 overrides:
