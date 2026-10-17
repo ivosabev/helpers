@@ -35,7 +35,7 @@ export async function parseMultipartFormData(request: Request, uploadHandler: Up
 
     const value = await uploadHandler(part);
     if (typeof value !== 'undefined' && value !== null) {
-      formData.append(part.name, value as any);
+      formData.append(part.name, value);
     }
   }
 

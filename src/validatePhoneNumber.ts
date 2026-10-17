@@ -1,13 +1,3 @@
-// NOTE: Only validates Bulgarian phone numbers
-export function validatePhoneNumber(_phoneNumber: string) {
-  let phoneNumber = _phoneNumber.replace(/[^0-9 ]/g, '');
-  if (phoneNumber[0] !== '0') {
-    phoneNumber = '0' + phoneNumber;
-  }
-  const isValid = bulgarianPhoneCodes.some((phoneCode) => phoneNumber.startsWith(phoneCode));
-  return isValid;
-}
-
 export const bulgarianPhoneCodes = [
   '0700', // 0700 special phones
   '0800', // 0800 special phones
@@ -2629,3 +2619,13 @@ export const bulgarianPhoneCodes = [
   '09785',
   '09786',
 ];
+
+// NOTE: Only validates Bulgarian phone numbers
+export function validatePhoneNumber(_phoneNumber: string) {
+  let phoneNumber = _phoneNumber.replace(/[^0-9 ]/g, '');
+  if (phoneNumber[0] !== '0') {
+    phoneNumber = '0' + phoneNumber;
+  }
+  const isValid = bulgarianPhoneCodes.some((phoneCode) => phoneNumber.startsWith(phoneCode));
+  return isValid;
+}

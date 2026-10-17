@@ -13,7 +13,7 @@ const CONTROLS_13_2 = [4, 9, 5, 7];
 export function validateCin(value: string) {
   value = String(value).trim();
 
-  if (value.length > 2 && value.substr(0, 2) == 'BG') {
+  if (value.length > 2 && value.substr(0, 2) === 'BG') {
     value = value.substring(2);
   }
 
