@@ -3,4 +3,5 @@ import {type OxlintConfig, defineConfig} from 'oxlint';
 
 export default defineConfig({
   extends: [config as unknown as OxlintConfig],
+  ignorePatterns: [...config.ignorePatterns],
 });
