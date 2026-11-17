@@ -1,3 +1,5 @@
+import {type Primitive} from './Primitive.js';
+
 // SOURCE: https://github.com/sindresorhus/type-fest/blob/main/source/simplify.d.ts
 /**
 Useful to flatten the type output to improve type hints shown in editors. And also to transform an interface into a type to aide with assignability.
@@ -52,8 +54,22 @@ fn(someInterface); // Error: Index signature for type 'string' is missing in typ
 fn(someInterface as Simplify<SomeInterface>); // Good: transform an `interface` into a `type`
 ```
 
+Only the top level is flattened. Property values are kept as is, and so are the elements of an array or a tuple, which keeps its shape. Use {@link SimplifyDeep} to flatten them too.
+
+A function or a class constructor is returned as is, because its call and construct signatures cannot be flattened into an object. To get only the properties of a function, use `Simplify<Omit<Type, never>>`.
+
+A primitive is also returned as is. A branded primitive like `string & {brand: 'UserId'}` is returned as is too, because flattening it would turn it into an object and remove the primitive. A union that includes a function, a class constructor, or a branded primitive is returned as is, so its other members are not flattened. A plain primitive in a union does not stop its other members from being flattened.
+
 @link https://github.com/microsoft/TypeScript/issues/15300
 @see SimplifyDeep
 @category Object
 */
-export type Simplify<T> = {[KeyType in keyof T]: T[KeyType]} & {};
+// The check is not distributive, so that a generic `T` stays assignable to `Simplify<T>`.
+export type Simplify<T> = [
+  BrandedPrimitive<T> | Extract<T, ((...arguments_: never) => unknown) | (abstract new (...arguments_: never) => unknown)>,
+] extends [never]
+  ? {[KeyType in keyof T]: T[KeyType]} & {}
+  : T;
+
+// A primitive intersected with an object, like `string & {brand: 'UserId'}`. Flattening it would drop the primitive.
+type BrandedPrimitive<Type> = Type extends Primitive ? ({[KeyType in keyof Type]: Type[KeyType]} extends Primitive ? never : Type) : never;
